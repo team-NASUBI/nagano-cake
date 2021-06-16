@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  namespace :public do
+  scope module: :public do
     resources :products, only: [:index, :show] 
     get 'products/genre' => "products#search"
     resources :customers, only: [:update, :edit] 
@@ -17,13 +17,22 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
-    resources :orders, only: [:index, :show] 
-    resources :customers, only: [:index, :show, :edit] 
-    resources :genres, only: [:index, :edit] 
-    resources :products, only: [:index,:new, :show, :edit] 
+    resources :orders, only: [:index, :show, :update] 
+    resources :customers, only: [:index, :show, :edit, :update] 
+    resources :genres, only: [:index, :edit, :create, :update] 
+    resources :products, except: [:destroy] 
+    resources :order_product, only: [:update]
   end
   
-  devise_for :admins
-  devise_for :customers
+ devise_for :admins, controllers: {
+  sessions:      'admins/sessions',
+  passwords:     'admins/passwords',
+  registrations: 'admins/registrations'
+}
+  devise_for :customers, controllers: {
+  sessions:      'customers/sessions',
+  passwords:     'customers/passwords',
+  registrations: 'customers/registrations'
+}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
