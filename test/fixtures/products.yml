@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  genre: one
+  name: MyString
+  product_image_id: MyString
+  introduction: MyText
+  price: 1
+  now_on_sale: false
+
+two:
+  genre: two
+  name: MyString
+  product_image_id: MyString
+  introduction: MyText
+  price: 1
+  now_on_sale: false
