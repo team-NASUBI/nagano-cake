@@ -1,6 +1,6 @@
 <div>
   <h1>商品新規登録</h1>
-  <%= form_with model: @product do |f| %>
+  <%= form_with model: @product, url: admin_products_path, local: true do |f| %>
   <table>
     <th>商品画像</th>
     <td><%= f.attachment_field :product_image, placeholder: "ファイルを選択" %></td>
@@ -9,7 +9,7 @@
     <th>商品説明</th>
     <td><%= f.text_area :introduction %></td>
     <th>ジャンル</th>
-    <td><%= f.select :genre, [["未分類", "1"],["ケーキ", "2"], ["プリン", "3"], ["焼き菓子", "4"], ["キャンディ", "5"]], include_blank: "選択して下さい" %></td>
+    <td><%= f.select :genre, [["未分類", "1.to_i"],["ケーキ", "2.to_i"], ["プリン", "3.to_i"], ["焼き菓子", "4.to_i"], ["キャンディ", "5.to_i"]], include_blank: "選択して下さい" %></td>
     <th>税抜き価格</th>
     <td><%= f.number_field :price %></td>
     <th>販売ステータス</th>
