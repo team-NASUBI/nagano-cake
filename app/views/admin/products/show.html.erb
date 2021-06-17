@@ -2,17 +2,19 @@
   <h1>商品詳細</h1>
    <table>
     <th></th>
-    <td><%= f.attachment_image_tag @product, :product_image, size: "100x160", fallback: "IMG_5440.jpg" %></td>
+    <td><%= attachment_image_tag @product, :product_image, size: "200x100" %></td>
     <th>商品名</th>
     <td><%= @product.name %></td>
     <th>商品説明</th>
     <td><%= @product.introduction %></td>
     <th>ジャンル</th>
-    <td><%= @product.genre %></td>
+    <td>
+     <%= @genre %>
+    </td>
     <th>税込価格<br>（税抜価格）</th>
-    <td><%= @product.price*1.1 %>(<%= @product.price %>)円</td>
+    <td><%= (@product.price*1.1).to_i.to_s(:delimited) %>(<%= @product.price.to_s(:delimited) %>)円</td>
     <th>販売ステータス</th>
-    <td><%= @product.now_on_sale %></td>
+    <td><% if @product.now_on_sale == true %>販売中<% else %>販売停止中<% end %></td>
   </table>
-  <p><%= link_to "編集する", edit_admin_product(@product.id) %></p>
+  <p><%= link_to "編集する", edit_admin_product_path(@product.id) %></p>
 </div>
