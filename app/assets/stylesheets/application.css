@@ -13,6 +13,42 @@
  *= require_tree .
  *= require_self
  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+header {
+  height: 120px ;
+  background-color: #211E55;
+}
+
+header ul {
+  width: 1024px;
+  height: 120px;
+  margin: 0 auto;
+}
+li {
+  list-style: none;
+  height: 120px;
+  float: right;
+}
+.nav-logo {
+  float: left;
+}
+.nav_icon {
+  color: #fafafa;
+  font-size: 16px;
+  padding: 50px 30px;
+  float: right;
+}
+
+
 
 /* 見出しの背景色 */
 .bg-gray {
