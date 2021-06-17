@@ -6,7 +6,8 @@ class Public::ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @price_including_tax = @product.price * 1.1
+    @price = @product.include_tax
+    @cart = Cart.new
   end
 
 end
