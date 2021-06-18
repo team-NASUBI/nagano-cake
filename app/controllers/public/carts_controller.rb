@@ -1,14 +1,14 @@
 class Public::CartsController < ApplicationController
   def index
-    @cart_products= current_customer.carts
+    @cart_products = session[:cart_id].map { |cart_id| Cart.find(cart_id) }
     @total_price = current_customer.carts.total(@cart_products)
   end
 
   def create
     cart_product =  current_customer.carts.new(cart_params)
     cart_product.save
-    session[:cart] = [] unless session[:cart]
-    session[:cart] << cart_product.id
+    session[:cart_id] = [] unless session[:cart_id]
+    session[:cart_id] << cart_product.id
     redirect_to carts_path
   end
 
