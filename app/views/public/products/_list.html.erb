@@ -1,0 +1,21 @@
+<h2><%= genre_name %>一覧</h2>
+<p>(全<%= products.count %>件)</p>
+
+<% products.each do |product| %>
+ <%= link_to product_path(product) do %>
+   <div class="product-list">
+     <div class="product">
+       <div class="product-image">
+         <%= attachment_image_tag product, :product_image, :fill, 100, 100, fallback: "no_image.png", size: '100x100' %>       
+       </div>
+       <div class="product-name">
+         <%= product.name %>
+       </div>
+       <div class="product-price">
+         <%= product.price %>円
+       </div>
+     </div>
+   </div>
+  <% end %>
+ <% end %>
+ <%= paginate products %>

@@ -74,7 +74,6 @@ Product.create!(name: "クッキー",
                 now_on_sale: true
                 )
 
-
 Admin.create!(email: "admin@test.com",
               password: "password",
               password_confirmation: "password")
