@@ -5,16 +5,16 @@ class Public::CartsController < ApplicationController
   end
 
   def create
-    cart_product =  current_customer.carts.new(cart_params)
+    cart_product =  current_customer.carts.build(cart_params)
     cart_product.save
-    
+
     if session[:cart_id]
       session[:cart_id] << cart_product.id
     else
       session[:cart_id] =[]
       session[:cart_id] << cart_product.id
     end
-    
+
     redirect_to carts_path
   end
 
