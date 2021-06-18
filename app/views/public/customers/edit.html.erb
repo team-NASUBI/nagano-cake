@@ -1,24 +1,20 @@
+<h2>会員情報編集</h2>
+
+<%= form_with model:@customer, local:true do |f| %>
   <div class="field">
-    <%= f.label :first_name, "名前　(姓)" %>
-    <%= f.text_field :first_name, placeholder: "令和" %>
-    <%= f.label :last_name, "(名)" %>
-    <%= f.text_field :last_name, placeholder: "道子" %>
+    <%= f.label :last_name, "名前" %>
+    <%= f.text_field :last_name, placeholder: "令和" %>
+    <%= f.text_field :first_name, placeholder: "道子" %>
   </div>
   
   <div class="field">
-    <%= f.label :kana_first_name, "フリガナ　セイ" %>
-    <%= f.text_field :kana_first_name, placeholder: "レイワ" %>
-    <%= f.label :kana_last_name, "メイ" %>
-    <%= f.text_field :kana_last_name, placeholder: "ミチコ" %>
+    <%= f.label :kana_last_name, "フリガナ" %>
+    <%= f.text_field :kana_last_name, placeholder: "レイワ" %>
+    <%= f.text_field :kana_first_name, placeholder: "ミチコ" %>
   </div>
   
   <div class="field">
-    <%= f.label :email, "メールアドレス" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
+    <%= f.label :postal_code, "郵便番号" %>
     <%= f.text_field :postal_code, placeholder: "0000000" %>
   </div>
   
@@ -28,6 +24,18 @@
   </div>
   
   <div class="field">
-    <%= f.label :telephone_number, "電話番号(ハイフンなし)" %>
+    <%= f.label :telephone_number, "電話番号" %>
     <%= f.text_field :telephone_number, placeholder: "0000000000" %>
   </div>
+  
+  <div class="field">
+    <%= f.label :email, "メールアドレス" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  
+  <div class="field">
+    <%= f.submit "編集内容を保存" %>
+  </div>
+  
+  <%= link_to "退会する", customers_unsubscribe_path %>
+<% end %>
