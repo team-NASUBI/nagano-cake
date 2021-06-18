@@ -12,12 +12,13 @@ Rails.application.routes.draw do
     get 'orders/confirm' => "orders#confirm"
     get 'orders/thanks' => "orders#thanks"
     resources :shipping_addresses, except: [:show, :new]
-    get 'homes/top'
+    root to: 'homes#top'
     get 'homes/about'
   end
 
   namespace :admin do
-    resources :orders, only: [:index, :show, :update]
+    get '/' => 'orders#index'
+    resources :orders, only: [:show, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :edit, :create, :update]
     resources :products, except: [:destroy]
