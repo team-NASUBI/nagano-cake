@@ -5,9 +5,9 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     case resource
     when Admin
-      admin_orders_path
+      admin_path
     when Customer
-      customer_show_path
+      root_path
     end
   end
 
@@ -21,9 +21,9 @@ class ApplicationController < ActionController::Base
   end
 
   before_action :configure_parmitted_parameters, if: :devise_controller?
-  
+
   protected
-  
+
   def configure_parmitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :kana_last_name, :kana_first_name, :postal_code, :address, :telephone_number])
   end

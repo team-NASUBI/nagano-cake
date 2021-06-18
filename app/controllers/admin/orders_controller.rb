@@ -12,4 +12,9 @@ class Admin::OrdersController < ApplicationController
       redirect_to admin_customer_path(params[:id])
     end
   end
+  
+  def update
+    
+  end
+
 end
