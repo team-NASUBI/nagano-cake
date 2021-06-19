@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
 
-
   #ログイン後の遷移画面(管理者&顧客)
   def after_sign_in_path_for(resource)
     case resource
@@ -19,7 +18,6 @@ class ApplicationController < ActionController::Base
       root_path
     end
   end
-
   before_action :configure_parmitted_parameters, if: :devise_controller?
 
   protected
@@ -27,5 +25,4 @@ class ApplicationController < ActionController::Base
   def configure_parmitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :kana_last_name, :kana_first_name, :postal_code, :address, :telephone_number])
   end
-
 end

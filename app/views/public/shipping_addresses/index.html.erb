@@ -14,6 +14,10 @@
     <%= f.label :shipping_name, "宛名" %>
     <%= f.text_field :shipping_name, placeholder: "令和道子" %>
   </div>
+  
+  <div class="field">
+    <%= f.submit "新規登録" %>
+  </div>
 <% end %>
 
 <table>
@@ -26,11 +30,11 @@
     </tr>
   </thead>
   <tbody>
-    <%= @shipping_addresses.each do |shipping_address| %>
+    <% @shipping_addresses.each do |shipping_address| %>
       <tr>
-        <td>shipping_address.postal_code</td>
-        <td>shipping_address.address</td>
-        <td>shipping_address.shipping_name</td>
+        <td><%= shipping_address.postal_code %></td>
+        <td><%= shipping_address.address %></td>
+        <td><%= shipping_address.shipping_name %></td>
         <td><%= link_to "編集する", edit_shipping_address_path(shipping_address.id) %><%= link_to "削除する", shipping_address_path(shipping_address.id), method: :delete %></td>
       </tr>
     <% end %>
