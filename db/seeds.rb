@@ -9,7 +9,6 @@ Customer.create!(last_name: "茄子美",
                  postal_code: "1234567",
                  address: "東京都渋谷代々木神園町0-0",
                  telephone_number: "09011112222",
-                 reset_password_token: "50"
                  )
 
 49.times do |n|
@@ -40,7 +39,6 @@ Customer.create!(last_name: "茄子美",
                  postal_code: postal_code,
                  address: address.kanji,
                  telephone_number: telephone_number,
-                 reset_password_token: "#{n}"
                  )
 end
 

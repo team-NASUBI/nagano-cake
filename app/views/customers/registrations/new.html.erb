@@ -4,17 +4,17 @@
   <%= render "customers/shared/error_messages", resource: resource %>
   
   <div class="field">
-    <%= f.label :first_name, "名前　(姓)" %>
-    <%= f.text_field :first_name, placeholder: "令和" %>
-    <%= f.label :last_name, "(名)" %>
-    <%= f.text_field :last_name, placeholder: "道子" %>
+    <%= f.label :last_name, "名前　(姓)" %>
+    <%= f.text_field :last_name, placeholder: "令和" %>
+    <%= f.label :first_name, "(名)" %>
+    <%= f.text_field :first_name, placeholder: "道子" %>
   </div>
   
   <div class="field">
-    <%= f.label :kana_first_name, "フリガナ　セイ" %>
-    <%= f.text_field :kana_first_name, placeholder: "レイワ" %>
-    <%= f.label :kana_last_name, "メイ" %>
-    <%= f.text_field :kana_last_name, placeholder: "ミチコ" %>
+    <%= f.label :kana_last_name, "フリガナ　セイ" %>
+    <%= f.text_field :kana_last_name, placeholder: "レイワ" %>
+    <%= f.label :kana_first_name, "メイ" %>
+    <%= f.text_field :kana_first_name, placeholder: "ミチコ" %>
   </div>
   
   <div class="field">
