@@ -13,4 +13,6 @@ class Order < ApplicationRecord
 
     (a.sum * 1.1).floor
   end
+  
+  
 end

@@ -9,7 +9,6 @@ Customer.create!(last_name: "茄子美",
                  postal_code: "1234567",
                  address: "東京都渋谷代々木神園町0-0",
                  telephone_number: "09011112222",
-                 reset_password_token: "50"
                  )
 
 49.times do |n|
@@ -40,7 +39,6 @@ Customer.create!(last_name: "茄子美",
                  postal_code: postal_code,
                  address: address.kanji,
                  telephone_number: telephone_number,
-                 reset_password_token: "#{n}"
                  )
 end
 
@@ -78,3 +76,21 @@ Admin.create!(email: "admin@test.com",
               password: "password",
               password_confirmation: "password")
               
+
+Order.create!(name: "yoshioka",
+              customer_id: 1,
+              address: "asdfgghh",
+              postal_code: "12345",
+              shipping: 800,
+              total_price: 5000,
+              payment_method: 0,
+              status:0) 
+
+Order.create!(name: "tarou",
+              customer_id: 2 ,
+              address: "fffffffff",
+              postal_code: "8901234",
+              shipping: 800,
+              total_price: 35000,
+              payment_method: 1,
+              status:0) 

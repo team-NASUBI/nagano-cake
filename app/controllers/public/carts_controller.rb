@@ -6,16 +6,22 @@ class Public::CartsController < ApplicationController
 
   def create
     cart_product =  current_customer.carts.build(cart_params)
-    cart_product.save
-
-    if session[:cart_id]
-      session[:cart_id] << cart_product.id
+    if current_customer.carts.find_by(product_id: params[:cart][:product_id]).present?
+      cart_product = current_customer.carts.find_by(product_id: params[:cart][:product_id])
+      cart_product.amount += params[:cart][:amount].to_i
+      cart_product.save
+      redirect_to carts_path
     else
-      session[:cart_id] =[]
-      session[:cart_id] << cart_product.id
-    end
+      cart_product.save
 
-    redirect_to carts_path
+      if session[:cart_id]
+        session[:cart_id] << cart_product.id
+      else
+        session[:cart_id] =[]
+        session[:cart_id] << cart_product.id
+      end
+      redirect_to carts_path
+    end
   end
 
   def update

@@ -5,5 +5,5 @@ class ChangeColumnToNull < ActiveRecord::Migration[5.2]
   
   def down
     change_column_null :products, :product_image_id, false
-  end
+  endgit 
 end
