@@ -26,7 +26,20 @@
 .top_text{
   padding: 100px;
 }
-
+.new_arrival{
+  padding-bottom: 60px;
+}
 .new_arrival_logo{
   margin: 100px auto 20px;
+}
+.new_arrival_contents{
+  text-align: center;
+  display: flex;
+  margin: 50px 120px 0;
+}
+.new_arrival_content{
+  width: 25%;
+}
+.new_arrival_content p{
+  margin-bottom: 0;
 }
