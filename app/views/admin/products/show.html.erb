@@ -1,20 +1,39 @@
-<div>
-  <h1>商品詳細</h1>
-   <table>
-    <th></th>
-    <td><%= attachment_image_tag @product, :product_image, size: "200x100" %></td>
-    <th>商品名</th>
-    <td><%= @product.name %></td>
-    <th>商品説明</th>
-    <td><%= @product.introduction %></td>
-    <th>ジャンル</th>
-    <td>
-     <%= @product.genre.name %>
-    </td>
-    <th>税込価格<br>（税抜価格）</th>
-    <td><%= (@product.price*1.1).to_i.to_s(:delimited) %>(<%= @product.price.to_s(:delimited) %>)円</td>
-    <th>販売ステータス</th>
-    <td><% if @product.now_on_sale == true %>販売中<% else %>販売停止中<% end %></td>
-  </table>
-  <p><%= link_to "編集する", edit_admin_product_path(@product.id) %></p>
+<div class="products_show">
+ <div class="container">
+  <div class="row">
+    <h4>商品詳細</h4>
+  </div>
+  <div class="row">
+
+    <div class="col-4">
+      <%= attachment_image_tag @product, :product_image, size: "350x200" %>
+    </div>
+    <div class="col-8">
+
+      <table>
+       <tr>
+        <th>商品名</th>
+        <td><%= @product.name %></td>
+       </tr>
+       <tr>
+        <th>商品説明</th>
+        <td><%= @product.introduction %></td>
+       </tr>
+       <tr>
+        <th>ジャンル</th>
+        <td><%= @product.genre.name %></td>
+       </tr>
+       <tr>
+        <th>税込価格<br>（税抜価格）</th>
+        <td><%= (@product.price*1.1).to_i.to_s(:delimited) %>(<%= @product.price.to_s(:delimited) %>)円</td>
+       </tr>
+       <tr>
+        <th>販売ステータス</th>
+        <td><% if @product.now_on_sale == true %>販売中<% else %>販売停止中<% end %></td>
+       </tr>
+      </table>
+    <p><%= link_to "編集する", edit_admin_product_path(@product.id) %></p>
+  </div>
+</div>
+</div>
 </div>

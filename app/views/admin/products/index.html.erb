@@ -1,5 +1,11 @@
-<div>
-  <h1>商品一覧</h1>
+<div class="products_index">
+  <div class="container">
+  <div class="row">
+    <div class="col-12">
+
+  
+    <div><h4>商品一覧</h4></div>
+    <div><%= link_to '商品の追加', new_admin_product_path %></div>
    <table>
       <thead>
         <tr>
@@ -11,15 +17,20 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+
           <% @products.each do |product| %>
+          <tr>
           <td><%= product.id %></td>
           <td><%= link_to product.name, admin_product_path(product) %></td>
           <td><%= product.price.to_s(:delimited) %></td>
           <td><%= product.genre.name %></td>
           <td><% if product.now_on_sale == true %>販売中<% else %>販売停止中<% end %></td>
+          </tr>
           <% end %>
-        </tr>
       </tbody>
     </table>
+    <%= paginate @products %>
+    </div>
+  </div>
+  </div>
 </div>
