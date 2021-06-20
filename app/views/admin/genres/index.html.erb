@@ -1,6 +1,7 @@
-<div>
+<div class="genre">
+  <div class="container">
   <div>
-    <h1>ジャンル一覧・追加</h1>
+    <h4>ジャンル一覧・追加</h4>
     <%= form_with model: @genre_new, url: admin_genres_path, local: true do |f| %>
       <table>
         <th>ジャンル名</th>
@@ -26,5 +27,6 @@
         </tr>
       </tbody>
     </table>
+  </div>
   </div>
 </div>
