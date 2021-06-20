@@ -1,14 +1,19 @@
+<div class="products_show container">
+    <div class="row">
+        <div class="col-5">
 <div class="product-image">
-    <%= attachment_image_tag @product, :product_image, :fill, 100, 100, fallback: "no_image.png", size: '100x100' %>
+    <%= attachment_image_tag @product, :product_image, :fill, 100, 100, fallback: "no_image.png", size: '400x300' %>
 </div>
+</div>
+<div class="col-7">
 <div class="product-detail">
-    <div class="product-name">
+    <div class="product-name" style="font-size:30px">
         <%= @product.name %>
     </div>
-    <div class="product-introduction">
+    <div class="product-introduction" style="padding-bottom:40px">
         <%= @product.introduction %>
     </div>
-    <div class="product-price">
+    <div class="product-price" style="font-size:20px">
         ￥<%= @price %>
         <span>(税込)</span>
     </div>
@@ -19,4 +24,7 @@
         <%= f.number_field :amount, min: 1, max: 20, placeholder: "個数選択" %>
         <%= f.submit "カートに入れる" %>
     <% end %>
+</div>
+</div>
+    </div>
 </div>
