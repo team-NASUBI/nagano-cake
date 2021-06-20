@@ -1,3 +1,41 @@
 <div class="row m-4">
   <div class="col">
-    <h5>注文履歴詳細</h5>
+    <h5 class="d-inline bg-gray pr-3 pl-3 ">注文履歴詳細</h5>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-2">購入者</div>
+  <%= link_to full_name(@order.customer), admin_customer_path(@order.customer), class: 'col-sm-2' %>
+  <div class="col-sm-8"></div>
+  <div class="col-sm-2">注文日</div>
+  <div class="col-sm-10"><%= @order.created_at.strftime('%Y/%m/%d') %></div>
+  <div class="col-sm-2">配送先</div>
+  <div class="col-sm-10"><%= @order.address %></div>
+  <div class="col-sm-2"></div>
+  <div class="col-sm-10"><%= full_name(@order.customer) %></div>
+  <div class="col-sm-2">支払い方法</div>
+  <div class="col-sm-10"><%= @order.payment_method %></div>
+  <div class="col-sm-2">注文ステータス</div>
+  <div id="form_order">
+    <%= render partial: 'admin/orders/form_order', locals: { order: @order} %>
+  </div>
+</div>
+<div class="row pt-3 ">
+  <div class="col-8">
+    <div id="form_order_product">
+      注文商品一覧を表示予定〜注文商品一覧を表示予定〜注文商品一覧を表示予定
+      注文商品一覧を表示予定〜注文商品一覧を表示予定〜注文商品一覧を表示予定
+
+    </div>
+  </div>
+  <div class="col-2 text-right">
+    <p>商品合計</p>
+    <p>送料</p>
+    <p>請求金額合計</p>
+  </div>
+  <div class="col-1 text-right">
+    <p>¥<%= @order.total_price.to_s(:delimited) %></p>
+    <p>¥<%= @shipping %></p>
+    <p>¥<%= @order.total_price + @shipping %></p>
+  </div>
+</div>

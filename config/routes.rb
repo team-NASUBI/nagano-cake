@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:update, :edit]
     get 'customers/my_page' => "customers#show"
     get 'customers/unsubscribe' => "customers#unsubscribe"
-    patch 'customers/withdraw' => "customers#withdraw"
+    get 'customers/withdraw' => "customers#withdraw"
     delete 'carts/destroy_all' => "carts#destroy_all"
     resources :carts, only: [:index, :create, :update, :destroy]
     post 'orders/confirm' => "orders#confirm"

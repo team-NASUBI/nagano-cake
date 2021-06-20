@@ -2,17 +2,20 @@
  <nav>
   <ul class="nav navber-nav">
    <li class="nav-logo">
-       <a href="/"><img src="/assets/logo.png" width="260px" height="120px"></a>
+
+       <a href="/"><img src="/assets/logo.png" width="260px" height="60px"></a>
+
       </li>
     <% if customer_signed_in? %>
-          <li><%= link_to ' マイページ', customers_my_page_path, class: 'nav_icon' %></li>
+          <li><%= link_to ' マイページ',customers_my_page_path(current_customer), class: 'nav_icon' %></li>
           <li><%= link_to ' 商品一覧',products_path, class: 'nav_icon'  %></li>
-          <li><%= link_to ' カート',carts_path, class: 'nav_icon'  %></li>
+          <li><%= link_to ' カート',carts_path(current_customer), class: 'nav_icon'  %></li>
           <li><%= link_to ' ログアウト', destroy_customer_session_path, method: :delete, class: 'nav_icon' %></li>
     <% elsif admin_signed_in? %>
           <li><%= link_to '商品一覧',admin_products_path, class: 'nav_icon'  %></li>
           <li><%= link_to '会員一覧',admin_customers_path, class: 'nav_icon'  %></li>
-          <li><%= link_to '注文履歴一覧',admin_orders_path, class: 'nav_icon' %></li>
+          <li><%= link_to '注文履歴一覧',admin_path, class: 'nav_icon' %></li>
+          <li><%= link_to 'ジャンル一覧', admin_genres_path, class: 'nav_icon' %></li>
           <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav_icon'  %></li>
     <% else %>
           <li><%= link_to ' About',homes_about_path, class: 'nav_icon'  %></li>

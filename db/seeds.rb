@@ -76,7 +76,6 @@ Admin.create!(email: "admin@test.com",
               password: "password",
               password_confirmation: "password")
 
-
 Order.create!(name: "yoshioka",
               customer_id: 1,
               address: "asdfgghh",
@@ -84,7 +83,7 @@ Order.create!(name: "yoshioka",
               shipping: 800,
               total_price: 5000,
               payment_method: 0,
-              status:0)
+              status:0) 
 
 Order.create!(name: "tarou",
               customer_id: 2 ,
@@ -100,3 +99,4 @@ ShippingAddress.create!(customer_id: 1,
                  postal_code: "2790031",
                  address: "千葉県浦安市舞浜1-1"
                  )
+

@@ -1,2 +1,28 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+
+<div class="top">
+  <div class="top_text">
+    ようこそ、ながのCAKEへ！<br>
+    このサイこのサイトは、ケーキ販売のECサイトになります。<br>
+    会員でない方も商品の閲覧はできますが、<br>
+    購入には会員登録が必要になります。
+  </div>
+  <div><img src="/assets/img_top.jpg"  height="350px"></div>
+
+  <div class="new_arrival">
+    <div>
+      <img class="new_arrival_logo" src="/assets/new arrival.png" height="40px">
+    </div>
+    <div>新着商品</div>
+    <div class="new_arrival_contents">
+      <% @products.each do |product| %>
+        <div class="new_arrival_content">
+          <p><%= attachment_image_tag product, :product_image, size: "250x170", fallback: "france-confectionery-83373_1280" %></p>
+          <p><%= link_to product.name, product_path(product) %></p>
+          <p>税込<%= (product.price*1.1).to_i.to_s(:delimited) %>円</p>
+
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
