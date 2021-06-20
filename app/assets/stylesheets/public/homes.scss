@@ -1,3 +1,45 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.concept{
+  background-image: image-url('about_background');
+  height: 800px;
+  background-size: cover;
+  text-align: center;
+  color:white;
+  font-size: 24px;
+  line-height: 2.5;
+}
+.concept img{
+  width: 200px;
+  margin: 100px auto 50px;
+}
+
+.top{
+  text-align: center;
+  color: white;
+  background-color: #727071;
+  opacity: 0.9;
+  line-height: 2.5;
+  font-size: 20px;
+}
+.top_text{
+  padding: 100px;
+}
+.new_arrival{
+  padding-bottom: 60px;
+}
+.new_arrival_logo{
+  margin: 100px auto 20px;
+}
+.new_arrival_contents{
+  text-align: center;
+  display: flex;
+  margin: 50px 120px 0;
+}
+.new_arrival_content{
+  width: 25%;
+}
+.new_arrival_content p{
+  margin-bottom: 0;
+}
