@@ -17,7 +17,7 @@
       <% @products.each do |product| %>
         <div class="new_arrival_content">
           <p><%= attachment_image_tag product, :product_image, size: "250x170", fallback: "france-confectionery-83373_1280" %></p>
-          <p><%= link_to product.name, product_path(product) %></p>
+          <p><%= link_to product.name, product_path(product), class:"product-name" %></p>
           <p>税込<%= (product.price*1.1).to_i.to_s(:delimited) %>円</p>
 
         </div>
