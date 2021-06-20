@@ -8,9 +8,9 @@ Rails.application.routes.draw do
     get 'customers/withdraw' => "customers#withdraw"
     delete 'carts/destroy_all' => "carts#destroy_all"
     resources :carts, only: [:index, :create, :update, :destroy]
-    resources :orders, only: [:index, :show, :new, :create]
-    get 'orders/confirm' => "orders#confirm"
+    post 'orders/confirm' => "orders#confirm"
     get 'orders/thanks' => "orders#thanks"
+    resources :orders, only: [:index, :show, :new, :create]
     resources :shipping_addresses, except: [:show, :new]
     root to: 'homes#top'
     get 'homes/about'

@@ -13,7 +13,7 @@ class Cart < ApplicationRecord
       a << cart_product.product.price * cart_product.amount
     end
     
-    (a.sum * 1.1).floor.to_s(:delimited)
+    (a.sum * 1.1).floor
   end
   
 end
