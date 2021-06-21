@@ -18,3 +18,47 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+ document.addEventListener("turbolinks:load"
+, function () {
+  $(function(){
+  ScrollReveal().reveal('.top_text', {
+  duration: 2600,
+  reset: true
+});
+});
+ })
+
+ document.addEventListener("turbolinks:load"
+, function () {
+$(function(){
+  ScrollReveal().reveal('.new_arrival_content', {
+  duration: 1600,
+  origin: 'bottom',
+  distance: '50px',
+  reset: true
+});
+});
+ })
+
+
+ document.addEventListener("turbolinks:load"
+, function () {
+$(function(){
+  ScrollReveal().reveal('.concept_title', {
+  duration: 1600,
+
+  reset: true
+});
+});
+ })
+
+ document.addEventListener("turbolinks:load"
+, function () {
+$(function(){
+  ScrollReveal().reveal('.concept_text', {
+  duration: 4000,
+
+  reset: true
+});
+});
+ })
