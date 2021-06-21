@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :edit, :create, :update]
     resources :products, except: [:destroy]
     resources :order_products, only: [:update]
+    get "search" => "searches#search"
   end
 
  devise_for :admins, controllers: {

@@ -13,4 +13,8 @@ class Product < ApplicationRecord
     (self.price * 1.1).floor
   end
 
+  def self.search(search)
+      Product.where(['id LIKE(?) OR name LIKE(?) OR now_on_sale LIKE(?)', "%#{search}%", "%#{search}%", "%#{search}%"])
+  end
+
 end
