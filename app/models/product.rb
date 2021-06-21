@@ -4,7 +4,6 @@ class Product < ApplicationRecord
   attachment :product_image
   
   validates :name, presence: true
-  validates :product_image_id, presence: true
   validates :introduction, presence: true
   validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :now_on_sale, presence: true

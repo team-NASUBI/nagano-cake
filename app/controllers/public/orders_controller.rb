@@ -1,5 +1,6 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_customer!
+  
   def index
     @orders = current_customer.orders.all
   end
@@ -43,7 +44,7 @@ class Public::OrdersController < ApplicationController
 
   def create
     order = current_customer.orders.build(order_params)
-    order.save
+    order.save!
     cart_products = current_customer.carts
     cart_products.each do |cart_product|
       order_product = OrderProduct.new(product_id: cart_product.product.id, order_id: order.id)
@@ -51,6 +52,7 @@ class Public::OrdersController < ApplicationController
       order_product.amount = cart_product.amount
       order_product.save
     end
+    OrderMailer.order_completed(order).deliver_now
     cart_products.destroy_all
     redirect_to orders_thanks_path
   end

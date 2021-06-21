@@ -13,7 +13,7 @@
          <%= product.name %>
        </div>
        <div class="product-price">
-         <%= product.price %>円
+         <%= number_to_currency(product.price, :format => "%u%n", :unit => "￥") %>
        </div>
      </div>
    </div>

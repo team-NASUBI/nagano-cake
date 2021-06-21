@@ -51,6 +51,7 @@ group :development do
   
   gem 'faker'
   gem 'gimei'
+  gem 'letter_opener_web'
 end
 
 group :test do
