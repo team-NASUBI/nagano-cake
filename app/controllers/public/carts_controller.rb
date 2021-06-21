@@ -1,4 +1,5 @@
 class Public::CartsController < ApplicationController
+  before_action :authenticate_customer!
   def index
     @cart_products = current_customer.carts
     @total_price = current_customer.carts.total(@cart_products)
