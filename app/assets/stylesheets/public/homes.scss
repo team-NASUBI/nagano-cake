@@ -19,13 +19,37 @@
 .top{
   text-align: center;
   color: white;
-  background-color: #727071;
+  background-color: #3c3b3b;
   opacity: 0.9;
   line-height: 2.5;
   font-size: 20px;
 }
 .top_text{
   padding: 100px;
+}
+.top_img{
+  background-image: image-url('top_middle');
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+}
+.top_messages{
+  background-image: image-url('top_1-1');
+  background-size: cover;
+  background-position: center;
+  height:800px;
+  position: relative;
+}
+.top_message1{
+  position: absolute;
+  top: 120px;
+  left: 120px;
+}
+.top_message2{
+  position: absolute;
+  top: 270px;
+  line-height: 4;
+  left: 27%;
 }
 .new_arrival{
   padding-bottom: 60px;

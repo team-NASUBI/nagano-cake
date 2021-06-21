@@ -22,7 +22,9 @@
 , function () {
   $(function(){
   ScrollReveal().reveal('.top_text', {
-  duration: 2600,
+  duration: 1600,
+   origin: 'bottom',
+  distance: '50px',
   reset: true
 });
 });
@@ -58,6 +60,26 @@ $(function(){
   ScrollReveal().reveal('.concept_text', {
   duration: 4000,
 
+  reset: true
+});
+});
+ })
+ document.addEventListener("turbolinks:load"
+, function () {
+  $(function(){
+  ScrollReveal().reveal('.top_message1', {
+  duration: 1600,
+  origin: 'right',
+  distance: '50px',
+  reset: true
+});
+});
+ })
+  document.addEventListener("turbolinks:load"
+, function () {
+  $(function(){
+  ScrollReveal().reveal('.top_message2', {
+  duration: 2600,
   reset: true
 });
 });
