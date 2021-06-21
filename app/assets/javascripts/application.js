@@ -85,3 +85,23 @@ $(function(){
 });
 });
  })
+  document.addEventListener("turbolinks:load"
+, function () {
+  $(function(){
+  ScrollReveal().reveal('.top_message3', {
+  duration: 1600,
+  origin: 'right',
+  distance: '100px',
+  reset: true
+});
+});
+ })
+   document.addEventListener("turbolinks:load"
+, function () {
+  $(function(){
+  ScrollReveal().reveal('.top_message4', {
+  duration: 1600,
+  reset: true
+});
+});
+ })
