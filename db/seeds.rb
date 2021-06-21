@@ -75,20 +75,11 @@ Product.create!(name: "クッキー",
 Admin.create!(email: "admin@test.com",
               password: "password",
               password_confirmation: "password")
-              
+
 
 ShippingAddress.create!(customer_id: 1,
                  shipping_name: "ミッキーマウス",
                  postal_code: "2790031",
                  address: "千葉県浦安市舞浜1-1"
                  )
-
-Order.create!(name: "tarou",
-              customer_id: 2 ,
-              address: "fffffffff",
-              postal_code: "8901234",
-              shipping: 800,
-              total_price: 35000,
-              payment_method: 1,
-              status:0) 
 
