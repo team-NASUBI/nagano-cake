@@ -1,5 +1,6 @@
-<div>
-  <h1>ジャンル編集</h1>
+<div class="row m-4" style="min-height:460px">
+  <div class="col">
+    <h5 class="d-inline bg-gray pr-3 pl-3 ">ジャンル編集</h5>
     <%= form_with model: @genre, url: admin_genre_path(@genre.id), local: true do |f| %>
       <table>
         <th>ジャンル名</th>
@@ -7,4 +8,5 @@
       </table>
       <p><%= f.submit'変更を保存' %></p>
     <% end %>
+  </div>
 </div>
