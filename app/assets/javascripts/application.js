@@ -48,7 +48,8 @@ $(function(){
 $(function(){
   ScrollReveal().reveal('.concept_title', {
   duration: 1600,
-
+  origin: 'right',
+  distance: '50px',
   reset: true
 });
 });
