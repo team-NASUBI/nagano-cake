@@ -9,9 +9,10 @@ class Public::CustomersController < ApplicationController
   end
   
   def update
-    customer = Customer.find(current_customer.id)
-    if customer.update(customer_params)
+    @customer = Customer.find(current_customer.id)
+    if @customer.update(customer_params)
       redirect_to customers_my_page_path(current_customer.id)
+      flash[:notice] = "会員情報を編集しました"
     else
       render :edit
     end
@@ -25,6 +26,7 @@ class Public::CustomersController < ApplicationController
     @customer.update(withdrawal_status: true)
     reset_session
     redirect_to root_path
+    flash[:notice] = "退会しました"
   end
   
   private
