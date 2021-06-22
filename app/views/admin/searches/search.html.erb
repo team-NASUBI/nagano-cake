@@ -1,0 +1,9 @@
+<div class="container search-result">
+  <% if @range == "Product" %>
+    <h2>Item search for "<%= @word %>"</h2>
+    <%= render 'admin/products/product_index', products: @search_products %>
+  <% else %>
+    <h2>Customer search for "<%= @word %>"</h2>
+    <%= render 'admin/customers/customer_index', customers: @search_customers %>
+  <% end %>
+</div>

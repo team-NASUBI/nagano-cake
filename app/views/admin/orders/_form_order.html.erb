@@ -1,10 +1,10 @@
 <%= form_with model: order, url: admin_order_path(order), method: :patch, local: true do |f| %>
   <div id="form-order" class="d-flex flex-row">
-    <%= f.select :order_status, Order.order_statuses.keys, class: 'form-control ml-3' %>
-    
+    <%= f.select :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]}, class: 'form-control' %>
+
   <span class= "col btnripple ">
     <%= f.submit "変更", class:'btn  btn-success' %>
   </span>
-    
+
   </div>
 <% end %>

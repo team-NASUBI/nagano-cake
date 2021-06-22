@@ -21,7 +21,7 @@ ja:
         total_price: 請求額
         payment_method: 支払方法
         status: 注文ステータス
-        
+
   enums:
     order:
       status:
@@ -30,7 +30,14 @@ ja:
         in_production: 製作中
         preparing_to_ship: 発送準備中
         shipped: 発送済み
-      
+
       payment_method:
         credit: クレジットカード
         bank: 銀行振込
+
+    order_product:
+      making_status:
+        not_production: 製作不可
+        waiting_for_production: 製作待ち
+        in_progress: 製作中
+        production_completed: 製作完了

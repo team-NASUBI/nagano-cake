@@ -7,6 +7,7 @@ class Customer < ApplicationRecord
   has_many :carts, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :shipping_addresses, dependent: :destroy
+
   
   validates :postal_code, presence: true, length: { is: 7 }
   validates :address, presence: true
@@ -18,6 +19,11 @@ class Customer < ApplicationRecord
   
   def full_name(customer)
     customer.last_name + customer.first_name
+  end
+
+  def self.search(search)
+      Customer.where(['id LIKE(?) OR first_name LIKE(?) OR withdrawal_status LIKE(?) OR last_name LIKE(?) OR kana_first_name LIKE(?) OR kana_last_name LIKE(?)',
+                       "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
   end
 
 end
