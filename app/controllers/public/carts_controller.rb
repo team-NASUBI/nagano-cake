@@ -10,12 +10,17 @@ class Public::CartsController < ApplicationController
     if current_customer.carts.find_by(product_id: params[:cart][:product_id]).present?
       cart_product = current_customer.carts.find_by(product_id: params[:cart][:product_id])
       cart_product.amount += params[:cart][:amount].to_i
-      cart_product.save
-      redirect_to carts_path
+      if cart_product.save
+        redirect_to carts_path
+      else
+        redirect_to product_path(params[:cart][:product_id])
+      end
     else
-      cart_product.save
-
-      redirect_to carts_path
+      if cart_product.save
+        redirect_to carts_path
+      else
+        redirect_to product_path(params[:cart][:product_id])
+      end
     end
   end
 
