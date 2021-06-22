@@ -1,3 +1,4 @@
+<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 <div class="container">
   <div class="row m-4">
     <div class="col">
@@ -5,6 +6,11 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "customers/shared/error_messages", resource: resource %>
+  
+  <!-- ▼郵便番号入力フィールド(7桁) -->
+<input type="text" name="zip11" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');">
+<!-- ▼住所入力フィールド(都道府県+以降の住所) -->
+<input type="text" name="addr11" size="60">
 
   <div class="form-group">
     <%= f.label :last_name, "名前　(姓)" %>
