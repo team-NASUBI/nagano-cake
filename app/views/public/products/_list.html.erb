@@ -2,7 +2,8 @@
 <p>(全<%= products.count %>件)</p>
 <div class="product-boxs">
 <% products.each do |product| %>
-  <div class="product-box">
+
+  <dl class="product-box">
  <%= link_to product_path(product) do %>
    <div class="product-list">
      <div class="product">
@@ -18,7 +19,7 @@
      </div>
    </div>
   <% end %>
-  </div>
+  </dl>
  <% end %>
  </div>
  <%= paginate products %>
