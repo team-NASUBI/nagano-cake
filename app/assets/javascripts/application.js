@@ -14,9 +14,11 @@
 //= require popper
 //= require bootstrap-sprockets
 
-//= require rails-ujs
+//= require jquery_ujs
 //= require activestorage
 //= require turbolinks
+
+//= require jquery.jpostal
 //= require_tree .
  document.addEventListener("turbolinks:load"
 , function () {
@@ -105,3 +107,17 @@ $(function(){
 });
 });
  })
+ 
+ $(function() {
+  $(document).on('turbolinks:load', () => {
+    $('#customer_postal_code').jpostal({
+      postcode : [
+        '#customer_postal_code'
+      ],
+      address: {
+        "#customer_prefecture_code": "%3", // # 都道府県が入力される
+        "#customer_address": "%4%5%6"
+      }
+    });
+  });
+});

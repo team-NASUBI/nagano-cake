@@ -16,6 +16,7 @@ class Customer < ApplicationRecord
   validates :kana_first_name, presence: true
   validates :kana_last_name, presence: true
   validates :telephone_number, presence: true
+  validates :prefecture_code, presence: true
   
   def full_name(customer)
     customer.last_name + customer.first_name
@@ -25,5 +26,6 @@ class Customer < ApplicationRecord
       Customer.where(['id LIKE(?) OR first_name LIKE(?) OR withdrawal_status LIKE(?) OR last_name LIKE(?) OR kana_first_name LIKE(?) OR kana_last_name LIKE(?)',
                        "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
   end
-
+  
+ 
 end
