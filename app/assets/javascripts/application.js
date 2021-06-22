@@ -115,8 +115,22 @@ $(function(){
         '#customer_postal_code'
       ],
       address: {
-        "#customer_prefecture_code": "%3", // # 都道府県が入力される
-        "#customer_address": "%4%5%6"
+        "#customer_prefecture_code": "%3",
+        "#customer_address": "%3%4%5%6"
+      }
+    });
+  });
+});
+
+$(function() {
+  $(document).on('turbolinks:load', () => {
+    $('#shipping_address_postal_code').jpostal({
+      postcode : [
+        '#shipping_address_postal_code'
+      ],
+      address: {
+        "#shipping_address_prefecture_code": "%3",
+        "#shipping_address_address": "%3%4%5%6"
       }
     });
   });
