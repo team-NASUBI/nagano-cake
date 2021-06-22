@@ -4,7 +4,7 @@
          <h5 class="d-inline bg-gray pr-3 pl-3" >商品編集</h5>
       </div>
   </div>
-  <%= form_with model: @product, url: admin_product_path(@product), local: true do |f| %>
+  <%= form_with model: [:admin, @product], local: true do |f| %>
 
   <div class="row">
     <div class="col-12">

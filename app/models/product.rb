@@ -7,8 +7,6 @@ class Product < ApplicationRecord
   validates :introduction, presence: true
   validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :now_on_sale, presence: true
-
-
   def include_tax
     (self.price * 1.1).floor
   end
