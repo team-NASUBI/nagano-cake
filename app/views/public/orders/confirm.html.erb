@@ -12,9 +12,9 @@
     <% @cart_products.each do |cart_product| %>
       <tr>
         <td><%= attachment_image_tag cart_product.product, :product_image, :fill, 100, 100, fallback: "no_image.png", size: '100x100' %><%= cart_product.product.name %></td>
-        <td><%= (cart_product.product.price * 1.1).floor.to_s(:delimited) %></td>
+        <td><%= number_to_currency((cart_product.product.price * 1.1).floor, :format => "%u%n", :unit => "￥") %></td>
         <td><%= cart_product.amount %></td>
-        <td><%= (cart_product.product.price * cart_product.amount * 1.1).floor.to_s(:delimited) %></td>
+        <td><%= number_to_currency((cart_product.product.price * cart_product.amount * 1.1).floor, :format => "%u%n", :unit => "￥") %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,20 +24,20 @@
   <table>
     <tr>
       <th>送料</th>
-      <td><%= @order.shipping %></td>
+      <td><%= number_to_currency(@order.shipping, :format => "%u%n", :unit => "￥") %></td>
       <%= f.hidden_field :shipping, :value => @order.shipping %>
     </tr>
     <tr>
       <th>商品合計</th>
-      <td><%= @total_price %></td>
+      <td><%= number_to_currency(@total_price, :format => "%u%n", :unit => "￥") %></td>
     </tr>
     <tr>
       <th>請求額</th>
-      <td><%= @order.shipping + @total_price %></td>
+      <td><%= number_to_currency(@order.shipping + @total_price, :format => "%u%n", :unit => "￥") %></td>
       <%= f.hidden_field :total_price, :value => @order.shipping + @total_price %>
     </tr>
   </table>
-  
+
   <table>
     <tr>
       <th>支払方法</th>
@@ -56,7 +56,7 @@
       </td>
     </tr>
   </table>
-  
+
   <%= link_to "情報入力へ戻る", new_order_path, class: "btn btn-primary" %>
   <%= f.submit "購入を確定する", class: "btn btn-success" %>
 <% end %>

@@ -14,14 +14,14 @@
         <%= @product.introduction %>
     </div>
     <div class="product-price" style="font-size:20px">
-        ￥<%= @price %>
+        <%= number_to_currency(@price, :format => "%u%n", :unit => "￥") %>
         <span>(税込)</span>
     </div>
 </div>
 <div class="to-cart">
     <%= form_with model: @cart, url: carts_path, local: true do |f| %>
         <%= f.hidden_field :product_id, :value => @product.id %>
-        <%= f.number_field :amount, min: 1, max: 20, placeholder: "個数選択" %>
+        <%= f.number_field :amount, min: 1, placeholder: "個数選択" %>
         <%= f.submit "カートに入れる" %>
     <% end %>
 </div>
