@@ -2,6 +2,8 @@ class Cart < ApplicationRecord
   belongs_to :customer
   belongs_to :product
   
+  validates :amount, presence: true, numericality: { only_integer: true }
+  
   def subtotal
     (self.product.price * self.amount * 1.1).floor.to_s(:delimited) 
   end

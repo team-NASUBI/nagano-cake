@@ -1,25 +1,11 @@
 // Place all the styles related to the admin/products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.products_index{
-  padding: 50px;
-  color:#727071;
-  min-height: 500px;
-  line-height: 2;
-}
 
-.products_index p{
-  margin-bottom: 30px;
-}
-.products_index table {
-   margin: auto;
-   width: 50% !important;
-}
 
 // newページ
 .products_new{
   padding: 50px;
-  color:#727071;
   min-height: 500px;
   line-height: 2;
 }
@@ -40,7 +26,6 @@
 // showページ
 .products_show{
   padding: 50px;
-  color:#727071;
   min-height: 500px;
   line-height: 2;
 }
@@ -48,7 +33,6 @@
 // editページ
 .products_edit{
   padding: 50px;
-  color:#727071;
   min-height: 500px;
   line-height: 2;
 }

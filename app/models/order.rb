@@ -1,7 +1,19 @@
 class Order < ApplicationRecord
   belongs_to :customer
+  has_many :order_products, dependent: :destroy
+  
+  validates :name, presence: true
+  validates :address, presence: true
+  VALID_POSTAL_CODE_REGEX = /\A\d{7}\z/
+  validates :postal_code, presence: true, length: { is: 7 }, format: { with: VALID_POSTAL_CODE_REGEX }
+  validates :shipping, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :total_price, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validates :payment_method, presence: true
+  validates :status, presence: true
 
-
+  enum payment_method: {credit:0, bank:1}
+  enum status: {waiting_for_payment:0, payment_confirmation:1, in_production:2, preparing_to_ship:3, shipped:4}
+  
   def self.total(cart_products)
     a = []
 
@@ -13,12 +25,4 @@ class Order < ApplicationRecord
   end
   
   
-
-  has_many :order_products, dependent: :destroy
-
- 
-
-  
-  enum payment_method: {クレジットカード:0, 銀行振込:1}
-  enum order_status: {入金待ち:0, 入金確認:1,  製作中:2, 発送準備中:3, 発送済み:4}
 end
