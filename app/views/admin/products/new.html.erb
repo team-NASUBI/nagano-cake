@@ -5,10 +5,10 @@
       </div>
   </div>
   <%= form_with model: @product, url: admin_products_path, local: true do |f| %>
-  
+
   <div class="row">
     <div class="col-12">
-      
+
     <table>
       <tr>
         <th>商品画像</th>
@@ -39,10 +39,9 @@
      </tr>
 
     </table>
-  
-      <p><%= f.submit'新規登録'%></p>
+
+      <p><%= f.submit'新規登録', class: 'btn btn-success'%></p>
   <% end %>
     </div>
   </div>
 </div>
-  
