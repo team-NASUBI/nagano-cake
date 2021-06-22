@@ -8,12 +8,12 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheet">
   </head>
 
   <body>
     <%= render 'layouts/header' %>
 
-    <%= render "layouts/search" %>
 
     <div class="Notification">
       <% flash.each do |key, value| %>
