@@ -1,38 +1,47 @@
-<h1>マイページ</h1>
+    <div class="container">
+      <div class="row m-4">
+      <div class="col">
+        <h5 class="d-inline bg-gray pr-3 pl-3">マイページ</h5>
 
-<table>
+      </div>
+    </div>
+ <div class="row">
+      <div class="col-6">
+        <table>
   <tbody>
     <tr>
-      <th><h2>登録情報</h2></th>
-      <td><%= link_to "編集する", edit_customer_path(current_customer.id) %></td>
+      <p style="margin:20px">
+      <th><strong>登録情報</strong></th>
+      <td><%= link_to "編集する", edit_customer_path(current_customer.id), class: "btn btn-success  offset-sm-1" %></td>
+      </p>
     </tr>
   </tbody>
 </table>
 
-<table>
+<table class="table table-bordered">
   <tbody>
     <tr>
-      <th>氏名</th>
+      <th class="bg-gray">氏名</th>
       <td><%= full_name(@customer) %></td>
     </tr>
     <tr>
-      <th>カナ</th>
+      <th class="bg-gray">カナ</th>
       <td><%= kana_full_name(@customer) %></td>
     </tr>
     <tr>
-      <th>郵便番号</th>
+      <th class="bg-gray">郵便番号</th>
       <td><%= @customer.postal_code %></td>
     </tr>
     <tr>
-      <th>住所</th>
+      <th class="bg-gray">住所</th>
       <td><%= @customer.address %></td>
     </tr>
     <tr>
-      <th>電話番号</th>
+      <th class="bg-gray">電話番号</th>
       <td><%= @customer.telephone_number %></td>
     </tr>
     <tr>
-      <th>メールアドレス</th>
+      <th class="bg-gray">メールアドレス</th>
       <td><%= @customer.email %></td>
     </tr>
   </tbody>
@@ -41,12 +50,19 @@
 <table>
   <tbody>
     <tr>
-      <th><h2>配送先</h2></th>
-      <td><%= link_to "一覧を見る", shipping_addresses_path %></td>
+      <p style="margin:20px">
+      <th><strong>配送先</strong></th>
+      <td><%= link_to "一覧を見る", shipping_addresses_path, class: "btn btn-primary offset-sm-1" %></td>
+      </p>
     </tr>
     <tr>
-      <th><h2>注文履歴</h2></th>
-      <td><%= link_to "一覧を見る", orders_path %></td>
+      <p style="margin:20px">
+      <th><strong>注文履歴</strong></th>
+      <td><%= link_to "一覧を見る", orders_path, class: "btn btn-primary offset-sm-1" %></td>
+      </p>
     </tr>
   </tbody>
 </table>
+</div>
+</div>
+</div>
