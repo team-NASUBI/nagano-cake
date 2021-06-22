@@ -1,7 +1,14 @@
-<h3>注文情報確認</h3>
-<table>
+    <div class="container">
+      <div class="row m-4">
+      <div class="col">
+        <h5 class="d-inline bg-gray pr-3 pl-3">注文情報確認</h5>
+      </div>
+    </div>
+ <div class="row">
+      <div class="col-9">
+        <table class="table table-bordered">
   <thead>
-    <tr>
+    <tr class="bg-gray">
       <th>商品名</th>
       <th>単価(税込)</th>
       <th>数量</th>
@@ -11,7 +18,7 @@
   <tbody>
     <% @cart_products.each do |cart_product| %>
       <tr>
-        <td><%= attachment_image_tag cart_product.product, :product_image, :fill, 100, 100, fallback: "no_image.png", size: '100x100' %><%= cart_product.product.name %></td>
+        <td><%= attachment_image_tag cart_product.product, :product_image, :fill, 100, 100, fallback: "no_image.png", size: '40x30' %><%= cart_product.product.name %></td>
         <td><%= number_to_currency((cart_product.product.price * 1.1).floor, :format => "%u%n", :unit => "￥") %></td>
         <td><%= cart_product.amount %></td>
         <td><%= number_to_currency((cart_product.product.price * cart_product.amount * 1.1).floor, :format => "%u%n", :unit => "￥") %></td>
@@ -19,44 +26,54 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
+<div class="col-3">
 <%= form_with model: @order, url: orders_path, local: true do |f| %>
-  <table>
+  <table class="table table-bordered">
     <tr>
-      <th>送料</th>
+      <th class="bg-gray">送料</th>
       <td><%= number_to_currency(@order.shipping, :format => "%u%n", :unit => "￥") %></td>
       <%= f.hidden_field :shipping, :value => @order.shipping %>
     </tr>
     <tr>
-      <th>商品合計</th>
+      <th class="bg-gray">商品合計</th>
       <td><%= number_to_currency(@total_price, :format => "%u%n", :unit => "￥") %></td>
     </tr>
     <tr>
-      <th>請求額</th>
+      <th class="bg-gray">請求額</th>
       <td><%= number_to_currency(@order.shipping + @total_price, :format => "%u%n", :unit => "￥") %></td>
       <%= f.hidden_field :total_price, :value => @order.shipping + @total_price %>
     </tr>
   </table>
-
+  </div>
+  </div>
+<div class="row">
   <table>
     <tr>
       <th>支払方法</th>
-      <td><%= @order.payment_method_i18n %></td>
+      <td>&emsp;<%= @order.payment_method_i18n %></td>
       <%= f.hidden_field :payment_method, :value => @order.payment_method %>
     </tr>
     <tr>
       <th>お届け先</th>
-      <td>
+      <td>&emsp;
         〒<%= @order.postal_code %>
-        <%= f.hidden_field :postal_code, :value => @order.postal_code %><br>
+        <%= f.hidden_field :postal_code, :value => @order.postal_code %>&emsp;
         <%= @order.address %>
-        <%= f.hidden_field :address, :value => @order.address %><br>
+        <%= f.hidden_field :address, :value => @order.address %><br>&emsp;
         <%= @order.name %>
         <%= f.hidden_field :name, :value => @order.name%>
       </td>
     </tr>
   </table>
-
-  <%= link_to "情報入力へ戻る", new_order_path, class: "btn btn-primary" %>
-  <%= f.submit "購入を確定する", class: "btn btn-success" %>
+  </div>
+  <div class="row">
+    <div class="col-12">
+  <div class="text-center" style="margin:30px auto 80px">
+    <%= link_to "情報入力へ戻る", new_order_path, class: "btn btn-primary" %>
+    <%= f.submit "購入を確定する", class: "btn btn-success" %>
+  </div>
+  </div>
 <% end %>
+</div>
+</div>
