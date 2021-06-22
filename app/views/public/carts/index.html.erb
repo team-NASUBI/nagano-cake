@@ -20,7 +20,7 @@
         <%= cart_product.product.name %>
       </td>
       <td>
-        <%= cart_product.product.include_tax %>円
+        <%= number_to_currency(cart_product.product.include_tax, :unit => "円") %>
       </td>
       <td>
         <%= form_with model: cart_product, url: cart_path(cart_product), local: true do |f| %>
@@ -29,7 +29,7 @@
         <% end %>
       </td>
       <td>
-        <%= cart_product.subtotal %>円
+        <%= number_to_currency(cart_product.subtotal, :unit => "円") %>
       </td>
       <td>
         <%= link_to "削除する", cart_path(cart_product), class: "btn btn-danger", method: :delete %>
@@ -44,7 +44,7 @@
 <table>
   <tr>
     <th>合計金額</th>
-    <td><%= @total_price %></td>
+    <td><%= number_to_currency(@total_price, :unit => "円") %></td>
   </tr>
 </table>
 <div class="get_order">
