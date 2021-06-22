@@ -1,4 +1,10 @@
 <h2>配送先編集</h2>
+<% if @shipping_address.errors.any? %>
+  <p><%= @shipping_address.errors.full_messages.count %>件のerror</p>
+  <% @shipping_address.errors.full_messages.each do |shipping_address| %>
+    <%= shipping_address %><br>
+  <% end %>
+<% end %>
 <%= form_with model:@shipping_address, local:true do |f| %>
   <div class="field">
     <%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
