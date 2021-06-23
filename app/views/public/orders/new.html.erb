@@ -1,3 +1,4 @@
+<script type="text/javascript" src="jquery.jpostal.js"></script>
   <div class="container" style="padding:20px">
 
    <div class="row m-4">
@@ -34,6 +35,10 @@
       <div>
         &emsp;&emsp;<%= f.label :postal_code, '郵便番号(ハイフンなし)', class: "col-3 mr-3" %>
         <%= f.text_field :postal_code %>
+      </div>
+      <div class="field">
+        <%= f.label :prefecture_code %><br>
+        <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
       </div>
       <div>
         &emsp;&emsp;<%= f.label :address, '住所', class: "col-3 mr-3" %>

@@ -150,3 +150,16 @@ $(this).delay(300 * i).fadeIn(500);
 });
  })
 
+$(function() {
+  $(document).on('turbolinks:load', () => {
+    $('#order_postal_code').jpostal({
+      postcode : [
+        '#order_postal_code'
+      ],
+      address: {
+        "#order_prefecture_code": "%3",
+        "#order_address": "%3%4%5%6"
+      }
+    });
+  });
+});
