@@ -1,4 +1,7 @@
-<h2>配送先登録/一覧</h2>
+<div class="container" style="padding-top:20px">
+  <div class="row m-4">
+    <div class="col">
+      <h5 class="d-inline bg-gray pr-3 pl-3">配送先登録/一覧</h5>
 <% if @shipping_address.errors.any? %>
   <p><%= @shipping_address.errors.full_messages.count %>件のerror</p>
   <% @shipping_address.errors.full_messages.each do |shipping_address| %>
@@ -7,33 +10,39 @@
 <% end %>
 <%= form_with model:@shipping_address, local:true do |f| %>
   <div class="field">
-    <%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
-    <%= f.text_field :postal_code, placeholder: "0000000" %>
+    <%= f.label :postal_code, "郵便番号(ハイフンなし)", class: "col-3 mr-3" %>
+    <%= f.text_field :postal_code, placeholder: "0000000", class: "col-2 form-ph" %>
   </div>
-  
-  <div class="field">
+
+  <div class="field" style="height:0;opacity:0">
     <%= f.label :prefecture_code %><br>
     <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
   </div>
-  
+
+
   <div class="field">
-    <%= f.label :address, "住所" %>
-    <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0" %>
+    <%= f.label :address, "住所", class: "col-3 mr-3" %>
+    <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "col-4 form-ph" %>
   </div>
-  
+
+
   <div class="field">
-    <%= f.label :shipping_name, "宛名" %>
-    <%= f.text_field :shipping_name, placeholder: "令和道子" %>
+    <%= f.label :shipping_name, "宛名", class: "col-3 mr-3" %>
+    <%= f.text_field :shipping_name, placeholder: "令和道子", class: "col-2 form-ph" %>
   </div>
-  
+
   <div class="field">
-    <%= f.submit "新規登録" %>
+    <%= f.submit "新規登録", class: "btn btn-success col-3 mt-4 offset-md-2" %>
   </div>
 <% end %>
-
-<table>
+</div>
+</div>
+<div class="row">
+  <div class="col-8">
+<div style="margin:30px auto 100px">
+<table class="table table-bordered">
   <thead>
-    <tr>
+    <tr class="bg-gray">
       <th>郵便番号</th>
       <th>住所</th>
       <th>宛名</th>
@@ -46,8 +55,12 @@
         <td><%= shipping_address.postal_code %></td>
         <td><%= shipping_address.address %></td>
         <td><%= shipping_address.shipping_name %></td>
-        <td><%= link_to "編集する", edit_shipping_address_path(shipping_address.id) %><%= link_to "削除する", shipping_address_path(shipping_address.id), method: :delete, data: {confirm: "削除しますか？"} %></td>
+        <td><%= link_to "編集する", edit_shipping_address_path(shipping_address.id), class: "btn btn-success" %>&emsp;<%= link_to "削除する", shipping_address_path(shipping_address.id), class: "btn btn-danger", method: :delete, data: {confirm: "削除しますか？"} %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
+</div>
+</div>
+</div>
