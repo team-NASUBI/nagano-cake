@@ -14,14 +14,17 @@
     <%= render 'layouts/header' %>
 
     <%= render "layouts/search" %>
-
+    <div class="abc">
+      <%= yield %>
+    </div>
+    
     <div class="Notification">
       <% flash.each do |key, value| %>
       <%= content_tag :div, value, class: key %>
       <% end %>
     </div>
 
-    <%= yield %>
+    
   </body>
   <div class="footer">
     <img src="/assets/logo.png" width="260px" height="60px">
