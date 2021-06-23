@@ -14,9 +14,11 @@
 //= require popper
 //= require bootstrap-sprockets
 
-//= require rails-ujs
+//= require jquery_ujs
 //= require activestorage
 //= require turbolinks
+
+//= require jquery.jpostal
 //= require_tree .
  document.addEventListener("turbolinks:load"
 , function () {
@@ -105,6 +107,36 @@ $(function(){
 });
 });
  })
+
+ 
+ $(function() {
+  $(document).on('turbolinks:load', () => {
+    $('#customer_postal_code').jpostal({
+      postcode : [
+        '#customer_postal_code'
+      ],
+      address: {
+        "#customer_prefecture_code": "%3",
+        "#customer_address": "%3%4%5%6"
+      }
+    });
+  });
+});
+
+$(function() {
+  $(document).on('turbolinks:load', () => {
+    $('#shipping_address_postal_code').jpostal({
+      postcode : [
+        '#shipping_address_postal_code'
+      ],
+      address: {
+        "#shipping_address_prefecture_code": "%3",
+        "#shipping_address_address": "%3%4%5%6"
+      }
+    });
+  });
+});
+
   document.addEventListener("turbolinks:load"
 , function () {
  $(function(){
@@ -117,3 +149,4 @@ $(this).delay(300 * i).fadeIn(500);
 });
 });
  })
+
