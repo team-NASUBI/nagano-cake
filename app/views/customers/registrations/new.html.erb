@@ -31,8 +31,7 @@
     <%= f.text_field :postal_code, placeholder: "0000000" %>
   </div>
   
-  <div class="field">
-    <%= f.label :prefecture_code %><br>
+  <div class="field" style="opacity:0;height:0;">
     <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
   </div>
 
