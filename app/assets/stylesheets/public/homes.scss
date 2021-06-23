@@ -86,6 +86,10 @@
   background-size: cover;
   background-position: center;
 }
+.new_arrival_img:hover{
+  box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 0 5px rgba(0,0,0,.1);
+	transform: translateY(-6px);
+}
 .new_arrival_logo{
   margin: 100px auto 20px;
 }
