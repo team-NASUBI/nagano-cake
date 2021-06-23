@@ -7,6 +7,7 @@ Customer.create!(last_name: "茄子美",
                  password_confirmation: "password",
                  withdrawal_status: false,
                  postal_code: "1234567",
+                 prefecture_code: "1",
                  address: "東京都渋谷代々木神園町0-0",
                  telephone_number: "09011112222",
                  )
@@ -37,6 +38,7 @@ Customer.create!(last_name: "茄子美",
                  password_confirmation: password,
                  withdrawal_status: false,
                  postal_code: postal_code,
+                 prefecture_code: "1",
                  address: address.kanji,
                  telephone_number: telephone_number,
                  )
@@ -80,6 +82,7 @@ Admin.create!(email: "admin@test.com",
 ShippingAddress.create!(customer_id: 1,
                  shipping_name: "ミッキーマウス",
                  postal_code: "2790031",
+                 prefecture_code: "1",
                  address: "千葉県浦安市舞浜1-1"
                  )
 

@@ -11,8 +11,8 @@
 <%= @order.address %>
 
 お支払い金額
-<%= number_to_currency(@order.total_price + @order.shipping, :unit => "￥") %>
-商品合計:<%= number_to_currency(@order.total_price, :unit => "￥") %>
+<%= number_to_currency(@order.total_price, :unit => "￥") %>
+商品合計:<%= number_to_currency(@order.total_price - @order.shipping, :unit => "￥") %>
 送料:<%= number_to_currency(@order.shipping, :unit => "￥") %>
 
 <%= link_to "ご注文の詳細を表示する", order_url(@order), class: "btn btn-primary" %>
