@@ -150,6 +150,8 @@ $(this).delay(300 * i).fadeIn(500);
 });
  })
 
+
+
 $(function() {
   $(document).on('turbolinks:load', () => {
     $('#order_postal_code').jpostal({

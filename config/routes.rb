@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   scope module: :public do
-    resources :products, only: [:index, :show]
     get 'products/genre' => "products#search"
+    resources :products, only: [:index, :show]
     resources :customers, only: [:update, :edit]
     get 'customers/my_page' => "customers#show"
     get 'customers/unsubscribe' => "customers#unsubscribe"
