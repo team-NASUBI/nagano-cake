@@ -15,8 +15,15 @@
   </div>
 
   <div class="field">
+    <%= f.label :prefecture_code %><br>
+    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
+  </div>
+  
+ 
+
     <%= f.label :address, "住所", class: "col-3 mr-3" %>
     <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "col-4 form-ph" %>
+
   </div>
 
   <div class="field">

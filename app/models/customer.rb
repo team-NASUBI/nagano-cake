@@ -17,9 +17,19 @@ class Customer < ApplicationRecord
   validates :kana_last_name, presence: true
   validates :telephone_number, presence: true
 
+  validates :prefecture_code, presence: true
+  
+
+
+
   def full_name(customer)
     customer.last_name + customer.first_name
   end
+
+
+  
+  
+ 
 
    def self.search(word)
     if word =~  /^[0-9]+$/
@@ -33,5 +43,6 @@ class Customer < ApplicationRecord
                                         "%#{word}%","%#{word}%","%#{word}%","%#{word}%","%#{word}%")
     end
    end
+
 
 end
