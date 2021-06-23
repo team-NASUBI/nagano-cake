@@ -1,5 +1,5 @@
 <%= form_with url: admin_search_path, method: :get, local: true do |f| %>
-  <%= f.text_field :word %>
-  <%= f.select :range, options_for_select([['Product'], ['Customer']]) %>
+  <%= f.text_field :word, placeholder: '商品/会員を検索' %>
+  <%= f.select :range, options_for_select([['商品'], ['会員']]) %>
 <% end %>
 
