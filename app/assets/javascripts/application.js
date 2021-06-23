@@ -105,6 +105,8 @@ $(function(){
 });
 });
  })
+  document.addEventListener("turbolinks:load"
+, function () {
  $(function(){
 
 $('div.product-boxs dl').hide();
@@ -114,3 +116,4 @@ $('div.product-boxs dl').each(function(i) {
 $(this).delay(300 * i).fadeIn(500);
 });
 });
+ })
