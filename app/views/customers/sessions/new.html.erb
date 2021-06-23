@@ -24,8 +24,8 @@
     <% end %>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "ログイン" %>
+  <div class="actions" style="text-align:center">
+    <%= f.submit "ログイン", class: "btn btn-success col-12" %>
   </div>
 <% end %>
 </div>
@@ -33,5 +33,7 @@
 
 
 <h4 class="mt-1 mb-3 bg-gray text-center ">会員登録がお済みでない方</h4>
-<%= render "customers/shared/links" %><span> から新規登録を行ってください。</span>
+<div style="margin:auto">
+  <%= render "customers/shared/links" %> から新規登録を行ってください。
+</div>
 </div>
