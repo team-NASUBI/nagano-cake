@@ -37,7 +37,7 @@
 <table class="table table-bordered">
   <tr>
     <th class="bg-gray">商品合計</th>
-    <td><%= number_to_currency(@order.total_price, :format => "%u%n", :unit => "￥") %></td>
+    <td><%= number_to_currency(@order.total_price - @order.shipping, :format => "%u%n", :unit => "￥") %></td>
   </tr>
   <tr>
     <th class="bg-gray">配送料</th>
@@ -45,7 +45,7 @@
   </tr>
   <tr>
     <th class="bg-gray">ご請求額</th>
-    <td><%= number_to_currency(@order.total_price + @order.shipping, :format => "%u%n", :unit => "￥") %></td>
+    <td><%= number_to_currency(@order.total_price, :format => "%u%n", :unit => "￥") %></td>
   </tr>
 </table>
 </div>

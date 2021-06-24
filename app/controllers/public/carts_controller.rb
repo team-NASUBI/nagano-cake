@@ -13,9 +13,11 @@ class Public::CartsController < ApplicationController
       cart_product.save
       redirect_to carts_path
     else
-      cart_product.save
-
-      redirect_to carts_path
+      if cart_product.save
+        redirect_to carts_path
+      else
+        redirect_to product_path(params[:cart][:product_id])
+      end
     end
   end
 

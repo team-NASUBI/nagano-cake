@@ -5,7 +5,7 @@
         <h5 class="d-inline bg-gray pr-3 pl-3">注文情報入力</h5>
          </div>
     </div>
-
+<div data-turbolinks="false">
   <%= form_with model: @order, url: orders_confirm_path, local: true do |f| %>
     <strong>支払方法</strong>
     <p>&emsp;
@@ -35,6 +35,10 @@
         &emsp;&emsp;<%= f.label :postal_code, '郵便番号(ハイフンなし)', class: "col-3 mr-3" %>
         <%= f.text_field :postal_code %>
       </div>
+      <div class="field" style="opacity: 0; height: 0;">
+        <%= f.label :prefecture_code %><br>
+        <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
+      </div>
       <div>
         &emsp;&emsp;<%= f.label :address, '住所', class: "col-3 mr-3" %>
         <%= f.text_field :address %>
@@ -48,3 +52,4 @@
       </div>
   <% end %>
 </div>
+<script type="text/javascript" src="jquery.jpostal.js"></script>
