@@ -30,11 +30,11 @@
         <td><%= @product.genre.name %></td>
        </tr>
        <tr>
-        <th>税込価格<br>（税抜価格）</th>
+        <th>税込価格<small>(税抜価格)</small></th>
         <td><%= (@product.price*1.1).to_i.to_s(:delimited) %>(<%= @product.price.to_s(:delimited) %>)円</td>
        </tr>
        <tr>
-        <th>販売ステータス</th>
+        <th>販売ステータス&emsp;&emsp;</th>
         <td><% if @product.now_on_sale == true %>販売中<% else %>販売停止中<% end %></td>
        </tr>
       </table>

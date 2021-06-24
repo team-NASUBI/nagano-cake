@@ -185,3 +185,25 @@ $(function() {
 });
  })
 
+   document.addEventListener("turbolinks:load"
+, function () {
+  $(function(){
+  ScrollReveal().reveal('.thanks_logo', {
+  duration: 1600,
+  origin: 'right',
+  distance: '100px',
+  reset: true
+});
+});
+ })
+    document.addEventListener("turbolinks:load"
+, function () {
+  $(function(){
+  ScrollReveal().reveal('.thanks_text', {
+  duration: 2600,
+  origin: 'right',
+  distance: '100px',
+  reset: true
+});
+});
+ })
