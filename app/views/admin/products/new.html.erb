@@ -1,14 +1,12 @@
 <div class="products_new">
   <div class="row m-4">
-      <div class="col">
-         <h5 class="d-inline bg-gray pr-3 pl-3" >商品新規登録</h5>
-      </div>
+    <div class="col">
+      <h5 class="d-inline bg-gray pr-3 pl-3" >商品新規登録</h5>
+    </div>
   </div>
-  <%= form_with model: [:admin, @product], local: true do |f| %>
-
   <div class="row">
     <div class="col-12">
-
+    <%= form_with model: [:admin, @product], local: true do |f| %>
     <table>
       <tr>
         <th>商品画像</th>
@@ -26,22 +24,24 @@
         <th>ジャンル</th>
         <td><%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %></td>
       </tr>
-     <tr>
-      <th>税抜き価格</th>
-      <td><%= f.number_field :price %></td>
-     </tr>
-     <tr>
-      <th>販売ステータス</th>
-      <td><%= f.radio_button :now_on_sale, :true %>
-        <%= f.label :now_on_sale, "販売中", {value: true, style: "display: inline-block"} %>
-        <%= f.radio_button :now_on_sale, :false %>
-        <%= f.label :now_on_sale, "販売停止中", {value: false, style: "display: inline-block"} %></td>
-     </tr>
-
+      <tr>
+        <th>税抜き価格</th>
+        <td><%= f.number_field :price %></td>
+      </tr>
+      <tr>
+        <th>販売ステータス</th>
+        <td>
+          <%= f.radio_button :now_on_sale, :true %>
+          <%= f.label :now_on_sale, "販売中", {value: true, style: "display: inline-block"} %>
+          <%= f.radio_button :now_on_sale, :false %>
+          <%= f.label :now_on_sale, "販売停止中", {value: false, style: "display: inline-block"} %>
+        </td>
+      </tr>
     </table>
-
-      <p><%= f.submit'新規登録', class: 'btn btn-success'%></p>
-  <% end %>
+    <p>
+      <%= f.submit'新規登録', class: 'btn btn-success'%>
+    </p>
+    <% end %>
     </div>
   </div>
 </div>
