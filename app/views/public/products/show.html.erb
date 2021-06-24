@@ -19,10 +19,14 @@
     </div>
 </div>
 <div class="to-cart">
-    <%= form_with model: @cart, url: carts_path, local: true do |f| %>
-        <%= f.hidden_field :product_id, :value => @product.id %>
-        <%= f.number_field :amount, min: 1, placeholder: "個数選択" %>
-        <%= f.submit "カートに入れる", class: "btn btn-success offset-md-1" %>
+    <% if @product.now_on_sale == true %>
+        <%= form_with model: @cart, url: carts_path, local: true do |f| %>
+            <%= f.hidden_field :product_id, :value => @product.id %>
+            <%= f.number_field :amount, min: 1, placeholder: "個数選択" %>
+            <%= f.submit "カートに入れる", class: "btn btn-success offset-md-1" %>
+        <% end %>
+    <% elsif @product.now_on_sale == false %>
+        <p>現在販売しておりません</p>
     <% end %>
 </div>
 </div>
