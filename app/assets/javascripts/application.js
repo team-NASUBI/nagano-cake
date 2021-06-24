@@ -108,7 +108,7 @@ $(function(){
 });
  })
 
- 
+
  $(function() {
   $(document).on('turbolinks:load', () => {
     $('#customer_postal_code').jpostal({
@@ -149,4 +149,24 @@ $(this).delay(300 * i).fadeIn(500);
 });
 });
  })
+   document.addEventListener("turbolinks:load"
+, function () {
+  $(function(){
+  ScrollReveal().reveal('.official', {
+  duration: 1600,
+  origin: 'right',
+  distance: '100px',
+  reset: true
+});
+});
+ })
 
+   document.addEventListener("turbolinks:load"
+, function () {
+  $(function(){
+  ScrollReveal().reveal('.officials', {
+  duration: 1600,
+  reset: true
+});
+});
+ })
