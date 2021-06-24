@@ -17,7 +17,6 @@ class Admin::OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    @order_product = OrderProduct.find(params[:id])
     @order_products = @order.order_products
     if @order.update(order_params)
       @order.change_making_status
