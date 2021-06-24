@@ -18,6 +18,15 @@
   <div class="top_img">
     <div class="top_message3"><img src="/assets/Waht is Nagano Cake’s concept__.png"  height="50px"></div>
     <div class="top_message4"><%= link_to homes_about_path do %> <%= image_tag 'Click here__.png' , size: '210x40' %> <% end %></div>
+    <div class="sns">
+      <p class="official">OFFICIAL SNS</p>
+      <p class="officials">
+        <%= link_to "#" do %><i class="fab fa-twitter-square" style="color:white"></i><% end %>
+        <%= link_to "#" do %><i class="fab fa-instagram-square" style="color:white"></i><% end %>
+        <%= link_to "#" do %><i class="fab fa-facebook-square" style="color:white"></i><% end %>
+        <%= link_to "#" do %><i class="fab fa-line" style="color:white"></i><% end %>
+      </p>
+    </div>
   </div>
 
   <div class="new_arrival">
@@ -28,8 +37,8 @@
     <div class="new_arrival_contents">
       <% @products.each do |product| %>
         <div class="new_arrival_content">
-          <p><%= attachment_image_tag product, :product_image, size: "250x170", fallback: "france-confectionery-83373_1280" %></p>
-          <p><%= link_to product.name, product_path(product), class:"top-product-name" %></p>
+          <p class="new_arrival_img"><%= link_to product_path(product) do %><%= attachment_image_tag product, :product_image, size: "250x170", fallback: "france-confectionery-83373_1280" %><% end %></p>
+          <p><%= product.name %></p>
           <p>税込<%= (product.price*1.1).to_i.to_s(:delimited) %>円</p>
 
         </div>
