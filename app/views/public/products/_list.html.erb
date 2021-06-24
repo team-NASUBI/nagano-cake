@@ -12,10 +12,10 @@
        <div class="product-image">
          <%= attachment_image_tag product, :product_image, fallback: "no_image.png", size: '200x130' %>
        </div>
-       <div class="product-name">
+       <div class="product-name" style="color:black;padding-top:15px;">
          <%= product.name %>
        </div>
-       <div class="product-price">
+       <div class="product-price" style="color:black;">
          <%= number_to_currency(product.price, :format => "%u%n", :unit => "￥") %>
        </div>
      </div>
