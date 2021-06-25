@@ -1,6 +1,6 @@
 <div class="row m-4">
   <div class="col">
-    <h5 class="d-inline bg-gray pr-3 pl-3 ">会員一覧</h5>
+    <h5 class="d-inline bg-gray pr-3 pl-3  ">会員一覧</h5>
   </div>
 </div>
 <div class="row">
@@ -21,7 +21,7 @@
               <%= customer.id %>
             </td>
             <td>
-              <%= link_to full_name(customer), admin_customer_path(customer) %>
+              <%= link_to full_name(customer), admin_customer_path(customer), class: 'time_text' %>
             </td>
             <td>
               <%= customer.email %>

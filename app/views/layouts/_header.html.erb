@@ -11,7 +11,7 @@
           <li class="nav-item active ">
             <%= link_to customers_my_page_path(current_customer), class: 'nav-link' do %>
             <span>ようこそ！<%= full_name(current_customer) %>さま</span>
-            
+
             <% end %>
           </li>
         </ul>
@@ -55,11 +55,11 @@
             <% end %>
             <%= link_to admin_genres_path, class: 'dropdown-item faa-parent animated-hover' do  %>
             <i class="fas fa-list-alt fa-fw faa-wrench"></i>
-            <span>Ganre</span>
+            <span>Genre</span>
             <% end %>
             <%= link_to admin_customers_path, class: 'dropdown-item faa-parent animated-hover' do  %>
             <i class="fas fa-users fa-fw faa-wrench"></i>
-            <span>User</span>
+            <span>Customer</span>
             <% end %>
             <%= link_to admin_path, class: 'dropdown-item faa-parent animated-hover' do  %>
             <i class="fas fa-file-alt fa-fw faa-wrench"></i>

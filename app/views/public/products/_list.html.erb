@@ -1,9 +1,12 @@
 <h2><%= genre_name %>一覧</h2>
 <p>(全<%= products.count %>件)</p>
-<%= form_with model: products, url: products_genre_path, method: :get, local: true do |f| %>
-  <%= f.collection_select :id, genres, :id, :name, {prompt: "ジャンル検索"}, class: "form-control" %>
-  <%= f.submit "検索" %>
+<%= form_with model: products, class: "form-inline genre-select", url: products_genre_path, method: :get, local: true do |f| %>
+  <%= f.collection_select :id, genres, :id, :name, {prompt: "ジャンル検索"}, {class: "form-control col-sm-2 mr-2"} %>
+  <%= button_tag type: 'submit', class: 'btn btn-default btnripple' do %>
+      <i class="fas fa-search faa-pulse animated-hover search-icon" ></i>
+    <% end %>
 <% end %>
+
 <div class="product-boxs">
   <% products.each do |product| %>
 
@@ -14,10 +17,10 @@
             <div class="product-image">
               <%= attachment_image_tag product, :product_image, fallback: "no_image.png", size: '200x130' %>
             </div>
-            <div class="product-name">
+            <div class="product-name time_text">
               <%= product.name %>
             </div>
-            <div class="product-price">
+            <div class="product-price time_text">
               <%= number_to_currency(product.price, :format => "%u%n", :unit => "￥") %>
             </div>
           </div>

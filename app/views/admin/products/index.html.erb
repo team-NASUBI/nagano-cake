@@ -23,10 +23,15 @@
         <% @products.each do |product| %>
           <tr>
             <td><%= product.id %></td>
-            <td><%= link_to product.name, admin_product_path(product) %></td>
+            <td><%= link_to product.name, admin_product_path(product), class: 'time_text' %></td>
             <td><%= product.price.to_s(:delimited) %></td>
             <td><%= product.genre.name %></td>
-            <td><% if product.now_on_sale == true %>販売中<% else %>販売停止中<% end %></td>
+            <td><% if product.now_on_sale == true %>
+            <p class="text-success">販売中</p>
+            <% else %>
+            <p class="text-secondary">販売停止中</p>
+            <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>
