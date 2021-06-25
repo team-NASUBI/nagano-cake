@@ -1,4 +1,5 @@
-<div class="row m-4">
+<div class="container" style="padding:30px">
+  <div class="row m-4">
   <div class="col">
     <h5 class="d-inline bg-gray pr-3 pl-3 "><%= full_name(@customer) %>さんの会員詳細</h5>
   </div>
@@ -41,7 +42,7 @@
     <% end %>
   </div>
 </div>
-<div class="row">
+<div class="row" style="padding-bottom:20px;">
   <div class="col-sm-2"></div>
   <div class="col-sm-2">
     <%= link_to edit_admin_customer_path(@customer) do %>
@@ -53,4 +54,5 @@
       <button type="button" class="btn btn-primary">注文履歴一覧を見る</button>
     <% end %>
   </div>
+</div>
 </div>
