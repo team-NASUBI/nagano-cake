@@ -13,14 +13,12 @@
       <%= link_to product_path(product) do %>
         <div class="product-list">
           <div class="product">
-            <div class="product-image">
+            <div class="sample7">
               <%= attachment_image_tag product, :product_image, fallback: "no_image.png", size: '200x130' %>
-            </div>
-            <div class="product-name">
-              <%= product.name %>
-            </div>
-            <div class="product-price">
-              <%= number_to_currency(product.price, :format => "%u%n", :unit => "￥") %>
+            <div class="mask">
+        	<div class="caption">
+	          <p><%= product.name %></p>
+              <p><%= number_to_currency(product.price, :format => "%u%n", :unit => "￥") %></p>
             </div>
           </div>
         </div>
