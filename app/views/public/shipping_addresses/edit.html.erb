@@ -1,34 +1,9 @@
-  <div class="container" style="padding:20px;min-height:480px">
-
-   <div class="row m-4">
-      <div class="col">
-        <h5 class="d-inline bg-gray pr-3 pl-3">配送先編集</h5>
-<% if @shipping_address.errors.any? %>
-  <p><%= @shipping_address.errors.full_messages.count %>件のerror</p>
-  <% @shipping_address.errors.full_messages.each do |shipping_address| %>
-    <%= shipping_address %><br>
-  <% end %>
-<% end %>
-<%= form_with model:@shipping_address, local:true do |f| %>
-  <div class="field">
-    <%= f.label :postal_code, "郵便番号(ハイフンなし)", class: "col-3 mr-3" %>
-    <%= f.text_field :postal_code, placeholder: "0000000", class: "col-2 form-ph" %>
+<div class="container" style="padding:20px;min-height:480px">
+ <div class="row m-4">
+    <div class="col">
+      <h5 class="d-inline bg-gray pr-3 pl-3">配送先編集</h5>
+      <%= render 'shipping_error', shipping_address: @shipping_address %>
+      <%= render 'shipping_form', shipping_address: @shipping_address %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :address, "住所", class: "col-3 mr-3" %>
-    <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "col-4 form-ph" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :shipping_name, "宛名", class: "col-3 mr-3" %>
-    <%= f.text_field :shipping_name, placeholder: "令和道子", class: "col-2 form-ph" %>
-  </div>
-
-  <div class="field">
-    <%= f.submit "変更内容を保存", class: "btn btn-success col-3 mt-4 offset-md-2" %>
-  </div>
-<% end %>
-</div>
-</div>
 </div>

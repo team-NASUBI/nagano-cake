@@ -15,25 +15,19 @@
   <body>
     <%= render 'layouts/header' %>
     
-    <div class="abc">
-      <%= yield %>
-      <span class="Notification">
+    <span class="Notification">
       <% flash.each do |key, value| %>
-      <%= content_tag :div, value, class: key %>
+        <%= content_tag :div, value, class: key %>
       <% end %>
     </span>
-    </div>
-
-
     
-
-    
+    <%= yield %>
   </body>
+  
   <div class="footer">
     <img class="footer_logo" src="/assets/logo.png" width="260px" height="60px">
     <br>
       <img src="/assets/© Nagano Cake.All Rights reserved.png" height="12px">
-
   </div>
 </html>
 

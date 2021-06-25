@@ -1,59 +1,53 @@
-    <div class="container">
-      <div class="row m-4">
-      <div class="col">
-        <h5 class="d-inline bg-gray pr-3 pl-3">マイページ</h5>
-
-      </div>
+<div class="container">
+  <div class="row m-4">
+    <div class="col">
+      <h5 class="d-inline bg-gray pr-3 pl-3">マイページ</h5>
     </div>
- <div class="row">
-      <div class="col-6">
-
-    <p class="margin">
-      <strong>登録情報</strong>&emsp;
-      <%= link_to "編集する", edit_customer_path(current_customer.id), class: "btn btn-success" %>
-    </p>
-
-
-<table class="table table-bordered">
-  <tbody>
-    <tr>
-      <th class="bg-gray">氏名</th>
-      <td><%= full_name(@customer) %></td>
-    </tr>
-    <tr>
-      <th class="bg-gray">カナ</th>
-      <td><%= kana_full_name(@customer) %></td>
-    </tr>
-    <tr>
-      <th class="bg-gray">郵便番号</th>
-      <td><%= @customer.postal_code %></td>
-    </tr>
-    <tr>
-      <th class="bg-gray">住所</th>
-      <td><%= @customer.address %></td>
-    </tr>
-    <tr>
-      <th class="bg-gray">電話番号</th>
-      <td><%= @customer.telephone_number %></td>
-    </tr>
-    <tr>
-      <th class="bg-gray">メールアドレス</th>
-      <td><%= @customer.email %></td>
-    </tr>
-  </tbody>
-</table>
-
-
-    <p class="margin">
-      <strong>配送先</strong>&emsp;&emsp;
-      <%= link_to "一覧を見る", shipping_addresses_path, class: "btn btn-primary" %>
-   </P>
-
-    <p class="margin">
-
-      <strong>注文履歴</strong>&emsp;
-      <%= link_to "一覧を見る", orders_path, class: "btn btn-primary" %>
-   </p>
-</div>
-</div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <p class="margin">
+        <strong>登録情報</strong>&emsp;
+        <%= link_to "編集する", edit_customer_path(current_customer.id), class: "btn btn-success" %>
+      </p>
+      
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th class="bg-gray">氏名</th>
+            <td><%= full_name(@customer) %></td>
+          </tr>
+          <tr>
+            <th class="bg-gray">カナ</th>
+            <td><%= kana_full_name(@customer) %></td>
+          </tr>
+          <tr>
+            <th class="bg-gray">郵便番号</th>
+            <td><%= @customer.postal_code %></td>
+          </tr>
+          <tr>
+            <th class="bg-gray">住所</th>
+            <td><%= @customer.address %></td>
+          </tr>
+          <tr>
+            <th class="bg-gray">電話番号</th>
+            <td><%= @customer.telephone_number %></td>
+          </tr>
+          <tr>
+            <th class="bg-gray">メールアドレス</th>
+            <td><%= @customer.email %></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <p class="margin">
+        <strong>配送先</strong>&emsp;&emsp;
+        <%= link_to "一覧を見る", shipping_addresses_path, class: "btn btn-primary" %>
+      </P>
+      <p class="margin">
+        <strong>注文履歴</strong>&emsp;
+        <%= link_to "一覧を見る", orders_path, class: "btn btn-primary" %>
+      </p>
+    </div>
+  </div>
 </div>
