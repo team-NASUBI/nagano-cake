@@ -24,11 +24,13 @@
         〒<%= current_customer.postal_code %> <%= current_customer.address %><br>&emsp;&emsp;
         <%= full_name(current_customer) %>
       </p>
+      <div class="form-inline">
       <% if current_customer.shipping_addresses.count != 0 %>
         &emsp;<%= f.radio_button :address_option, 1 %>
-        <%= f.label :address_option, '登録済み住所から選択' %>
-        <%= f.collection_select :id, current_customer.shipping_addresses, :id, :address, {prompt: "選択してください"}, class: "form-control" %>
+        <%= f.label :address_option, '登録済み住所から選択', class: "mr-2" %>
+        <%= f.collection_select :id, current_customer.shipping_addresses, :id, :address, {prompt: "選択してください"}, {class: "form-control form-control-sm col-4"} %>
       <% end %>
+      </div>
 
       &emsp;<%= f.radio_button :address_option, 2 %>
       <%= f.label :address_option, '新しいお届け先' %>
@@ -48,8 +50,9 @@
         &emsp;&emsp;<%= f.label :name, '宛名', class: "col-3 mr-3" %>
         <%= f.text_field :name %>
       </div>
-      <div class="text-center">
+      <div class="text-center order-new-btn">
         <%= f.submit '確認画面へ進む', class: "btn btn-primary" %>
       </div>
   <% end %>
+</div>
 </div>

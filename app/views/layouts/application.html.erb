@@ -13,21 +13,24 @@
   </head>
 
   <body>
+   <div class="footerFixed" >
     <%= render 'layouts/header' %>
-    
+
     <span class="Notification">
       <% flash.each do |key, value| %>
         <%= content_tag :div, value, class: key %>
       <% end %>
     </span>
-    
+
     <%= yield %>
   </body>
-  
-  <div class="footer">
-    <img class="footer_logo" src="/assets/logo.png" width="260px" height="60px">
+
+
+  <footer>
+    <img class="footer_logo" src="/assets/logo.png" width="200px" height="46px">
     <br>
       <img src="/assets/© Nagano Cake.All Rights reserved.png" height="12px">
-  </div>
+  </footer>
+ </div>
 </html>
 
