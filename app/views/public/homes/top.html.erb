@@ -36,12 +36,16 @@
     <div>新着商品</div>
     <div class="new_arrival_contents">
       <% @products.each do |product| %>
-        <div class="new_arrival_content">
-          <p class="new_arrival_img"><%= link_to product_path(product) do %><%= attachment_image_tag product, :product_image, size: "250x170", fallback: "france-confectionery-83373_1280" %><% end %></p>
-          <p><%= product.name %></p>
-          <p>税込<%= (product.price*1.1).to_i.to_s(:delimited) %>円</p>
-
-        </div>
+      <div class="sample8">
+　　　	<%= link_to product_path(product) do %><%= attachment_image_tag product, :product_image, size: "280x200", fallback: "france-confectionery-83373_1280" %>
+　      <div class="mask">
+        	<div class="caption">
+	          <p><%= product.name %></p>
+           <p>税込<%= (product.price*1.1).to_i.to_s(:delimited) %>円</p>
+          </div>
+      	</div>
+      </div>
+      <% end %>
       <% end %>
     </div>
   </div>
