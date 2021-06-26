@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_16_061103) do
+ActiveRecord::Schema.define(version: 2021_06_23_061003) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2021_06_16_061103) do
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "first_name", null: false
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2021_06_16_061103) do
     t.string "telephone_number", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "prefecture_code"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
@@ -76,20 +77,21 @@ ActiveRecord::Schema.define(version: 2021_06_16_061103) do
     t.integer "customer_id", null: false
     t.string "name", null: false
     t.string "address", null: false
-    t.integer "postal_code", null: false
+    t.string "postal_code", null: false
     t.integer "shipping", null: false
     t.integer "total_price", null: false
     t.integer "payment_method", default: 0, null: false
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "prefecture_code"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
   create_table "products", force: :cascade do |t|
     t.integer "genre_id"
     t.string "name", null: false
-    t.string "product_image_id", null: false
+    t.string "product_image_id"
     t.text "introduction", null: false
     t.integer "price", null: false
     t.boolean "now_on_sale", null: false
@@ -105,6 +107,7 @@ ActiveRecord::Schema.define(version: 2021_06_16_061103) do
     t.string "address", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "prefecture_code"
     t.index ["customer_id"], name: "index_shipping_addresses_on_customer_id"
   end
 

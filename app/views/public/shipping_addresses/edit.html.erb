@@ -1,2 +1,9 @@
-<h1>Public::ShippingAddresses#edit</h1>
-<p>Find me in app/views/public/shipping_addresses/edit.html.erb</p>
+<div class="container" style="padding:20px;min-height:480px">
+ <div class="row m-4">
+    <div class="col">
+      <h5 class="d-inline bg-gray pr-3 pl-3">配送先編集</h5>
+      <%= render 'shipping_error', shipping_address: @shipping_address %>
+      <%= render 'shipping_form', shipping_address: @shipping_address %>
+    </div>
+  </div>
+</div>

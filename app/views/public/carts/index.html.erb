@@ -1,2 +1,74 @@
-<h1>Public::Carts#index</h1>
-<p>Find me in app/views/public/carts/index.html.erb</p>
+<div class="container" style="min-height:380px">
+  <div class="row m-4">
+    <div class="col">
+      <h5 class="d-inline bg-gray pr-3 pl-3">ショッピングカート</h5>
+<div class="all_delete text-right">
+  <%= link_to "カートを空にする", carts_destroy_all_path, class: "btn btn-danger", method: :delete %>
+</div>
+</div>
+</div>
+<div class="row">
+  <div class="col">
+<table class="table table-bordered">
+  <thead>
+    <tr class="bg-gray">
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <%  @cart_products.each do |cart_product| %>
+    <tr>
+      <td>
+        <%= attachment_image_tag cart_product.product, :product_image, :fill, 50, 50, fallback: "no_image.png", size: '50' %>
+        <%= cart_product.product.name %>
+      </td>
+      <td>
+        <%= number_to_currency(cart_product.product.include_tax, :unit => "円") %>
+      </td>
+      <td>
+        <%= form_with model: cart_product, url: cart_path(cart_product), local: true do |f| %>
+          <%= f.number_field :amount, min: 1, max: 20, value: cart_product.amount %>
+          <%= f.submit "更新", class: "btn btn-success" %>
+        <% end %>
+      </td>
+      <td>
+        <%= number_to_currency(cart_product.subtotal, :unit => "円") %>
+      </td>
+      <td>
+        <%= link_to "削除する", cart_path(cart_product), class: "btn btn-danger", method: :delete %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+<div class="row" style="padding-top:40px">
+  <div class="col-8">
+<div class="return-shopping">
+  <%= link_to "買い物を続ける", products_path, class: "btn btn-primary" %>
+</div>
+</div>
+<div class="col-4">
+<table class="table table-bordered">
+  <tr>
+    <th class="bg-gray">合計金額</th>
+    <td><%= number_to_currency(@total_price, :unit => "円") %></td>
+  </tr>
+</table>
+</div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="get_order text-center" style="padding-bottom:80px">
+      <%= link_to "情報入力に進む", new_order_path, class: "btn btn-success col-3" %>
+    </div>
+  </div>
+ </div>
+</div>
+
+</div>

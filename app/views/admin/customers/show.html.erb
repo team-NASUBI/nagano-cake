@@ -1,2 +1,58 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<div class="container" style="padding:30px">
+  <div class="row m-4">
+  <div class="col">
+    <h5 class="d-inline bg-gray pr-3 pl-3 "><%= full_name(@customer) %>さんの会員詳細</h5>
+  </div>
+</div>
+<div class="row mb-3">
+  <div class="col-sm-2">会員ID</div>
+  <div class="col-sm-2"><%= @customer.id %></div>
+</div>
+<div class="row mb-3">
+  <div class="col-sm-2">氏名</div>
+  <div class="col"><%= @customer.last_name %> <%= @customer.first_name %></div>
+</div>
+<div class="row mb-3">
+  <div class="col-sm-2">フリガナ</div>
+  <div class="col"><%= @customer.kana_last_name %> <%= @customer.kana_first_name %></div>
+</div>
+<div class="row mb-3">
+  <div class="col-sm-2">郵便番号</div>
+  <div class="col"><%= @customer.postal_code %></div>
+</div>
+<div class="row mb-3 ">
+  <div class="col-sm-2">住所</div>
+  <div class="col"><%= @customer.address %></div>
+</div>
+<div class="row mb-3 ">
+  <div class="col-sm-2">電話番号</div>
+  <div class="col"><%= @customer.telephone_number %></div>
+</div>
+<div class="row mb-3 ">
+  <div class="col-sm-2">メールアドレス</div>
+  <div class="col"><%= @customer.email %></div>
+</div>
+<div class="row mb-3">
+  <div class="col-sm-2">会員ステータス</div>
+  <div class="col">
+    <% if @customer.withdrawal_status == false %>
+    <p class="text-success">有効</p>
+    <% else %>
+    <p class="text-secondary">退会</p>
+    <% end %>
+  </div>
+</div>
+<div class="row" style="padding-bottom:20px;">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-2">
+    <%= link_to edit_admin_customer_path(@customer) do %>
+      <button type="button" class="btn btn-success">編集する</button>
+    <%end  %>
+  </div>
+  <div class="col-sm-3">
+    <%= link_to admin_path(customer_id: @customer.id) do %>
+      <button type="button" class="btn btn-primary">注文履歴一覧を見る</button>
+    <% end %>
+  </div>
+</div>
+</div>

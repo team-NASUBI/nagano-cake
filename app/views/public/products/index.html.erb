@@ -1,2 +1,3 @@
-<h1>Public::Products#index</h1>
-<p>Find me in app/views/public/products/index.html.erb</p>
+<div class="container" style="min-height:550px">
+  <%= render "public/products/list", products: @products, genre_name: @genre_name, genres: @genres %>
+</div>

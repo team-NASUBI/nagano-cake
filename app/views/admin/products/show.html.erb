@@ -1,2 +1,42 @@
-<h1>Admin::Products#show</h1>
-<p>Find me in app/views/admin/products/show.html.erb</p>
+<div class="products_show" style="min-height:550px;">
+  <div class="container">
+    <div class="row m-4">
+       <div class="col">
+         <h5 class="d-inline bg-gray pr-3 pl-3">商品詳細</h5>
+       </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <%= attachment_image_tag @product, :product_image, size: "350x250" %>
+      </div>
+      <div class="col-8">
+        <table>
+          <tr>
+            <th>商品名</th>
+            <td><%= @product.name %></td>
+          </tr>
+          <tr>
+            <th>商品説明</th>
+            <td style="overflow-wrap:anywhere"><%= @product.introduction %></td>
+          </tr>
+          <tr>
+            <th>ジャンル</th>
+            <td><%= @product.genre.name %></td>
+          </tr>
+          <tr>
+            <th>税込価格<small>(税抜価格)</small></th>
+            <td><%= (@product.price*1.1).to_i.to_s(:delimited) %>(<%= @product.price.to_s(:delimited) %>)円</td>
+          </tr>
+          <tr>
+            <th>販売ステータス&emsp;&emsp;</th>
+            <td><% if @product.now_on_sale == true %>販売中<% else %>販売停止中<% end %></td>
+          </tr>
+        </table>
+        <p>
+          <%= link_to "編集する", edit_admin_product_path(@product.id), class: 'btn btn-success' %>&emsp;
+          <%= link_to "商品一覧画面へ", admin_products_path, class: 'btn btn-primary' %>
+        </p>
+       </div>
+    </div>
+  </div>
+</div>

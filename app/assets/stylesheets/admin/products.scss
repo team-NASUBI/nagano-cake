@@ -1,3 +1,50 @@
 // Place all the styles related to the admin/products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// newページ
+.products_new{
+  padding: 50px;
+  min-height: 500px;
+  line-height: 2;
+}
+
+.products_new table {
+   margin: auto;
+   width: 50% !important;
+}
+.products_new h4{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.products_new p{
+    text-align: center;
+    margin-top: 30px;
+}
+
+// showページ
+.products_show{
+  padding: 50px;
+  min-height: 500px;
+  line-height: 2;
+}
+
+// editページ
+.products_edit{
+  padding: 50px;
+  min-height: 500px;
+  line-height: 2;
+}
+.products_edit table {
+   margin: auto;
+   width: 50% !important;
+}
+.products_edit h4{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.products_edit p{
+    text-align: center;
+    margin-top: 30px;
+}

@@ -13,3 +13,79 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.time_text{
+  text-decoration: none;
+  color: black ;
+}
+
+/* 見出しの背景色 */
+.bg-gray {
+  background-color: #ddd;
+}
+
+.footerFixed{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+footer{
+  width: 100%;
+  background-color: #7e5d8d;
+  opacity: 0.9;
+  text-align: center;
+  margin-top: auto;
+}
+.footer_logo{
+  margin-top: 15px;
+}
+
+.Notification {
+  color: white;
+  position: absolute;
+  top: 31px;
+  left: 50%;
+}
+
+.genre-select{
+  margin-bottom: 50px;
+}
+
+/* 検索アイコンのサイズ */
+.search-icon{
+  font-size: 1.5em;
+  color: dimgray;
+}
+
+.order-new-btn{
+  margin: 35px 0px 50px ;
+}
+
+.officials-footer{
+  font-size: 5px;
+}
+
+.new_arrival{
+  padding-top: 10px;
+}
+
+.top{
+  overflow: hidden;
+}

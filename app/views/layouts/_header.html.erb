@@ -1,0 +1,113 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #baa5c2;">
+
+    <a class="navbar-brand" href="/"><img src="/assets/logo.png" width="260px" height="60px"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  <% if customer_signed_in? %>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active ">
+            <%= link_to customers_my_page_path(current_customer), class: 'nav-link' do %>
+            <span>ようこそ！<%= full_name(current_customer) %>さま</span>
+
+            <% end %>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <%= link_to customers_my_page_path(current_customer), class: 'nav-link faa-parent animated-hover' do %>
+             <i class="fas fa-user faa-wrench"></i>
+            <span>My Page</span>
+            <% end %>
+          </li>
+           <li class="nav-item">
+            <%= link_to products_path, class: 'nav-link faa-parent animated-hover' do %>
+             <i class="fas  fa-birthday-cake faa-wrench"></i>
+            <span>Product</span>
+            <% end %>
+          </li>
+           <li class="nav-item">
+            <%= link_to carts_path(current_customer), class: 'nav-link faa-parent animated-hover' do %>
+             <i class="fas fa-shopping-cart faa-wrench"></i>
+            <span>Cart</span>
+            <% end %>
+          </li>
+           <li class="nav-item">
+            <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link faa-parent animated-hover' do  %>
+             <i class="fas fa-sign-out-alt faa-wrench"></i>
+            <span>Log Out</span>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+  <% elsif admin_signed_in? %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu List</a>
+          <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+            <%= link_to admin_products_path, class: 'dropdown-item faa-parent animated-hover' do  %>
+            <i class="fas  fa-birthday-cake fa-fw faa-wrench"></i>
+            <span>Product</span>
+            <% end %>
+            <%= link_to admin_genres_path, class: 'dropdown-item faa-parent animated-hover' do  %>
+            <i class="fas fa-list-alt fa-fw faa-wrench"></i>
+            <span>Genre</span>
+            <% end %>
+            <%= link_to admin_customers_path, class: 'dropdown-item faa-parent animated-hover' do  %>
+            <i class="fas fa-users fa-fw faa-wrench"></i>
+            <span>Customer</span>
+            <% end %>
+            <%= link_to admin_path, class: 'dropdown-item faa-parent animated-hover' do  %>
+            <i class="fas fa-file-alt fa-fw faa-wrench"></i>
+            <span>Order</span>
+            <% end %>
+            <div class="dropdown-divider"></div>
+            <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link faa-parent animated-hover' do  %>
+            <i style="height:0;opacity:0">""</i>
+            <i class="fas fa-sign-out-alt fa-fw faa-wrench"></i>
+            <span>Log Out</span>
+            <% end %>
+          </div>
+        </li>
+
+
+      </ul>
+      <%= render 'layouts/search' %>
+
+    </div>
+  <% else %>
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <%= link_to homes_about_path, class: 'nav-link faa-parent animated-hover' do %>
+             <i class="fas fa-info-circle faa-wrench"></i>
+            <span>About</span>
+            <% end %>
+          </li>
+           <li class="nav-item">
+            <%= link_to products_path, class: 'nav-link faa-parent animated-hover' do %>
+             <i class="fas  fa-birthday-cake faa-wrench"></i>
+            <span>Product</span>
+            <% end %>
+          </li>
+           <li class="nav-item">
+            <%= link_to new_customer_registration_path, class: 'nav-link faa-parent animated-hover' do %>
+             <i class="fas fa-user-plus faa-wrench"></i>
+            <span>Sign Up</span>
+            <% end %>
+          </li>
+           <li class="nav-item">
+            <%= link_to new_customer_session_path, class: 'nav-link faa-parent animated-hover' do  %>
+             <i class="fas fa-sign-in-alt faa-wrench"></i>
+            <span>Log In</span>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+  <% end %>
+  </nav>
+</header>

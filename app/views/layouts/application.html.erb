@@ -7,9 +7,29 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
   </head>
 
   <body>
+   <div class="footerFixed" >
+    <%= render 'layouts/header' %>
+
+    <span class="Notification">
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: key %>
+      <% end %>
+    </span>
+
     <%= yield %>
   </body>
+
+
+  <footer>
+    <img class="footer_logo" src="/assets/logo.png" width="200px" height="46px">
+    <br>
+      <img src="/assets/© Nagano Cake.All Rights reserved.png" height="12px">
+  </footer>
+ </div>
 </html>
+

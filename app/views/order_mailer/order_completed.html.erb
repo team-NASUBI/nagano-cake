@@ -1,0 +1,23 @@
+<h1>ご注文の確認</h1>
+<h2><%= @customer.last_name + @customer.first_name %> 様</h2>
+<p>ながのケーキをご利用いただき、誠にありがとうございます。<br>
+    お客様のご注文を承ったことをお知らせいたします。<br>
+    詳細は、以下をご確認ください。</p>
+
+<h2>ご注文日</h2>
+<p><strong><%= @order.created_at.strftime('%Y/%m/%d') %></strong></p>
+
+<h2>お届け先</h2>
+<p><strong>
+  <%= @order.name %> 様<br>
+  〒<%= @order.postal_code %><br>
+  <%= @order.address %></strong></p>
+
+<h2>お支払い金額</h2>
+<p><strong><%= number_to_currency(@order.total_price, :format => "%u%n", :unit => "￥") %></strong><br>
+    商品合計:<%= number_to_currency(@order.total_price - @order.shipping, :format => "%u%n", :unit => "￥") %><br>
+    送料:<%= number_to_currency(@order.shipping, :format => "%u%n", :unit => "￥") %></p>
+
+<%= link_to order_url(@order) do %>
+  <button class="btn btn-primary">詳細を表示する</button>
+<% end %>

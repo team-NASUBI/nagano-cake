@@ -1,0 +1,18 @@
+ご注文の確認
+<%= @customer.last_name + @customer.first_name %> 様
+ながのケーキをご利用いただき、誠にありがとうございます。ながのケーキがお客様のご注文を承ったことをお知らせいたします。詳細は、以下をご確認ください。
+
+<ご注文日>
+<%= @order.created_at.strftime('%Y/%m/%d') %>
+
+お届け先
+<%= @order.name %> 様
+〒<%= @order.postal_code %>
+<%= @order.address %>
+
+お支払い金額
+<%= number_to_currency(@order.total_price, :unit => "￥") %>
+商品合計:<%= number_to_currency(@order.total_price - @order.shipping, :unit => "￥") %>
+送料:<%= number_to_currency(@order.shipping, :unit => "￥") %>
+
+<%= link_to "ご注文の詳細を表示する", order_url(@order), class: "btn btn-primary" %>

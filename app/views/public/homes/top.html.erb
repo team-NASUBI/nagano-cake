@@ -1,2 +1,53 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+
+<div class="top ">
+  <div class="top_messages">
+    <div class="top_message1"><img src="/assets/top_nagano.png"  height="120px"></div>
+    <div class="top_message2"><img src="/assets/The best quality of cake .png"  height="50px"><br>
+    <img src="/assets/Our cake is very popular for the nutorition.png"  height="50px"><br>
+    <img src="/assets/Especcially we use “ nasubi”.png"  height="55px"><br>
+    <img src="/assets/That is our secret of cake quality.png"  height="50px"></div>
+  </div>
+　<div class="top_text_box">
+  <div class="top_text">
+    ようこそ、ながのCAKEへ！<br>
+    このサイトは、ケーキ販売のECサイトになります。<br>
+    会員でない方も商品の閲覧はできますが、<br>
+    購入には会員登録が必要になります。
+  </div>
+  </div>
+  <div class="top_img">
+    <div class="top_message3"><img src="/assets/Waht is Nagano Cake’s concept__.png"  height="50px"></div>
+    <div class="top_message4"><%= link_to homes_about_path do %> <%= image_tag 'Click here__.png' , size: '210x40' %> <% end %></div>
+    <div class="sns">
+      <p class="official">OFFICIAL SNS</p>
+      <p class="officials">
+        <%= link_to "#" do %><i class="fab fa-twitter-square" style="color:white"></i><% end %>
+        <%= link_to "#" do %><i class="fab fa-instagram-square" style="color:white"></i><% end %>
+        <%= link_to "#" do %><i class="fab fa-facebook-square" style="color:white"></i><% end %>
+        <%= link_to "#" do %><i class="fab fa-line" style="color:white"></i><% end %>
+      </p>
+    </div>
+  </div>
+
+  <div class="new_arrival">
+    <div>
+      <img class="new_arrival_logo" src="/assets/new arrival.png" height="40px">
+    </div>
+    <div>新着商品</div>
+    <div class="new_arrival_contents">
+      <% @products.each do |product| %>
+      <div class="sample8">
+　　　	<%= link_to product_path(product) do %><%= attachment_image_tag product, :product_image, size: "280x200", fallback: "france-confectionery-83373_1280" %>
+　      <div class="mask">
+        	<div class="caption">
+	          <p><%= product.name %></p>
+           <p>税込<%= (product.price*1.1).to_i.to_s(:delimited) %>円</p>
+          </div>
+      	</div>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

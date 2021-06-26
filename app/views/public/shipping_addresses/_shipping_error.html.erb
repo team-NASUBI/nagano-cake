@@ -1,0 +1,6 @@
+<% if shipping_address.errors.any? %>
+  <p><%= shipping_address.errors.full_messages.count %>件のerror</p>
+  <% shipping_address.errors.full_messages.each do |shipping_address_message| %>
+    <%= shipping_address_message %><br>
+  <% end %>
+<% end %>
