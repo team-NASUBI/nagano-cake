@@ -4,9 +4,6 @@ DMMWEBCAMPのチーム開発課題で作成しました。
 子供からお年寄りの方まで幅広い層をターゲットとし、
 落ち着きのあるデザインとなっております。
 
-<img src="app/assets/images/nasubi-readme.jpg">
-
-
 ## ER図
 <img src="app/assets/images/nasubi-er.jpg">
 
